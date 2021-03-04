@@ -1,0 +1,28 @@
+{
+  "name": "projet-nomad-back",
+  "version": "1.0.0",
+  "description": "app dédiée au site Digital Nomad",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/O-clock-Nautilus/projet-nomad-back.git"
+  },
+  "keywords": [
+    "Digital",
+    "Nomad"
+  ],
+  "author": "Guillaume et Gab",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/O-clock-Nautilus/projet-nomad-back/issues"
+  },
+  "homepage": "https://github.com/O-clock-Nautilus/projet-nomad-back#readme",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "pg": "^8.5.1"
+  }
+}
