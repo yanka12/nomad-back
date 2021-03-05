@@ -9,6 +9,6 @@ class Person {
             this[prop] = data[prop];
         }
     }
-  }
-  
-  module.exports = Person;
+}
+
+module.exports = Person;

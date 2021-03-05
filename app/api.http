@@ -1,0 +1,20 @@
+@protocol= http
+@domainname= localhost
+@port= {{$dotenv PORT}}
+# @path=v1
+@baseUrl = {{protocol}}://{{domainname}}:{{port}}
+
+### Route GET /posts
+
+GET {{baseUrl}}/profil/1
+
+### Route POST /profil
+
+POST {{baseUrl}}/profil
+Content-Type: application/json
+
+{
+    "nickname": "Maher",
+    "email": "m82.ayari@yahoo.fr",
+    "password": "js4life"
+}
