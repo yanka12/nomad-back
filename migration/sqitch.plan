@@ -1,0 +1,4 @@
+%syntax-version=1.0.0
+%project=digitalNomad
+
+init 2021-03-05T10:17:58Z Guillaume Cuvillers <guillaume.cuvillers@gmail.com> # bdd tables
