@@ -2,11 +2,15 @@ const { Router } = require('express');
 
 const router = Router();
 
+const cors = require('cors');
+
 const categoryController = require('./controllers/categoryController');
 
 const personController = require('./controllers/personController');
 
 const articleController = require('./controllers/articleController');
+
+router.use(cors());
 
 router.get('/coucou', (req, res) => {
     res.json({hello :"coucou"})
