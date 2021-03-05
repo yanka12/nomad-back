@@ -18,7 +18,7 @@ router.get('/coucou', (req, res) => {
 
 router.get('/profil/:id', personController.onePerson);
 
-router.post('/person',personController.newPerson);
+router.post('/person', personController.newPerson);
 
 
 module.exports = router;
