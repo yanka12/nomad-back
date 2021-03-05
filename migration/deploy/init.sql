@@ -2,8 +2,7 @@
 
 
 
--- Deploy nomad:init to pg
--- création des tables de base
+
 
 BEGIN;
 

@@ -4,13 +4,14 @@
 # @path=v1
 @baseUrl = {{protocol}}://{{domainname}}:{{port}}
 
-### Route GET /posts
+### Route GET /person
 
-GET {{baseUrl}}/profil/1
+GET {{baseUrl}}/profil/2
+
 
 ### Route POST /profil
 
-POST {{baseUrl}}/profil
+POST {{baseUrl}}/person
 Content-Type: application/json
 
 {
