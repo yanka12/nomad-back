@@ -6,10 +6,10 @@ const app = express();
 
 const port = process.env.PORT || 4040;
 
-const router = require('./router');
+const router = require('./app/router');
 
 app.use(express.json());
 
 app.use(router);
 
-app.listen(port, () => console.log(`Listening on port${port}`));
+app.listen(port, () => console.log(`Listening on http://localhost:${port}`));

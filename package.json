@@ -4,8 +4,7 @@
   "description": "app dédiée au site Digital Nomad",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
-    "deploy": "sqitch deploy db:pg:nomad"
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
