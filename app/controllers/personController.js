@@ -3,7 +3,7 @@ const personMapper = require('../models/personMapper');
 const Person = require('../models/person');
 
 const personController = {
-onePerson: async (request, response) => {
+getOnePerson: async (request, response) => {
     const { id } = request.params;
     console.log(id);
 
@@ -39,7 +39,7 @@ newPerson: async (request, response) => {
     }
 },
 
-allPerson: async (request, response) => {
+getAllPerson: async (request, response) => {
     const persons = await personMapper.findAll();
 
     response.json(persons);

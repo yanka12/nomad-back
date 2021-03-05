@@ -7,15 +7,9 @@ const personMapper = {
     console.log('id', id)
 
   const result = await db.query(`
-      SELECT
-          p.*,
-          m.link
-      FROM person AS p
-      JOIN person_media AS pm
-      ON p.id = pm.person_id
-      JOIN media AS m
-      ON m.id = pm.media_id
-      WHERE p.id = $1;
+      SELECT * 
+      FROM person
+      WHERE id = $1;
   `, [id]);
   console.log(result.rows[0]);
   if (!result.rows[0]) { // si pas de données
@@ -26,7 +20,6 @@ const personMapper = {
   
   // à partir des données brutes, je crée une instance
   return new Person(result.rows[0]);
-  
   
 }, 
 save: async (thePerson) => {
@@ -52,8 +45,17 @@ save: async (thePerson) => {
       
       // pas besoin de le retourner car il est passé par référence, donc l'objet d'origine est modifié
   
+},
+
+findAll: async () => {
+  // va chercher tous les posts dans la bdd
+  const result = await db.query(`
+      SELECT *
+      FROM person;
+  `);
+  // et les retourne, sous forme d'instances de Post
+  return result.rows.map(person => new Person(person));
 }
 
-};
-
+}
 module.exports = personMapper;
