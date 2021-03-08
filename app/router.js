@@ -7,6 +7,10 @@ const authController = require('./controllers/authController');
 const categoryController = require('./controllers/categoryController');
 const personController = require('./controllers/personController');
 const articleController = require('./controllers/articleController');
+const adminController = require('./controllers/adminController');
+
+const isConnected = require('./middlewares/isConnected');
+const isAdmin = require('./middlewares/isAdmin');
 
 
 router.get('/profil', personController.getAllPerson);
