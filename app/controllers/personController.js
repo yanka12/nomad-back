@@ -1,8 +1,11 @@
 const { response } = require('express');
 const personMapper = require('../models/personMapper');
+const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
 const Person = require('../models/person');
 
 const personController = {
+
 getOnePerson: async (request, response) => {
     const { id } = request.params;
     console.log(id);
