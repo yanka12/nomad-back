@@ -20,8 +20,18 @@ Content-Type: application/json
     "password": "js4life"
 }
 
-### Route POST /login
+### Route POST /singup
 POST {{baseUrl}}/signup
+Content-Type: application/json
+
+{
+    "nickname": "jean louis",
+    "email": "guillaume.cuvillers@hotmail.fr",
+    "password": "js4life"
+}
+
+### Route POST /login
+POST {{baseUrl}}/login
 Content-Type: application/json
 
 {
