@@ -11,7 +11,7 @@ GET {{baseUrl}}/profil/2
 
 ### Route POST /profil
 
-POST {{baseUrl}}/person
+POST {{baseUrl}}/profil
 Content-Type: application/json
 
 {

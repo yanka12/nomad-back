@@ -42,7 +42,7 @@ created_at TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 
 CREATE TABLE category_article (
-artcile_id int NOT NULL,
+article_id int NOT NULL,
 category_id int NOT NULL
 );
 

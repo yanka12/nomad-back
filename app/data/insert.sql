@@ -1,7 +1,7 @@
 -- insertion de données dans person
 -- ATTENTION ECRIRE LE SCRIPT DE DEPART AVANT DE LACER L'INSERTION
 INSERT INTO person ("nickname","email","password") VALUES 
-('Audrey', 'Reba16@gmail.com', 'Audy0714',),
+('Audrey', 'Reba16@gmail.com', 'Audy0714'),
 ('ARNOULD', 'Kiehn@yahoo.com', 'jean-francois-arnould'),
 ('Yunxi', 'Crawford53@hotmail.com', 'YunxiBZ'),
 ('Theo', 'Malvina_Wehner@hotmail.com', 'TheoB-png'),
@@ -20,7 +20,7 @@ INSERT INTO person ("nickname","email","password") VALUES
 
 -- insertion de données dans person
 
-INSERT INTO catégory ("name") VALUES 
+INSERT INTO category ("name") VALUES 
 ('marcheur'),
 ('van'),
 ('bateau');
@@ -31,6 +31,6 @@ INSERT INTO media ("link") VALUES ('mipuzbozih'), ('lmjsscpcmkjqcomz'), ('pjzqdn
 
 INSERT INTO category_article ("artcile_id", "category_id") VALUES ('1', '3'), ('2', '1'), ('3','2');
 
-INSERT INTO person_media ("person_id", "media_id ") VALUES ('1', '1'), ('2','2'), ('3','3'), ('4','4');
+INSERT INTO person_media ("person_id", "media_id") VALUES ('1', '1'), ('2','2'), ('3','3'), ('4','4');
 
 INSERT INTO comment ("content", "person_id", "article_id") VALUES ('Cet article est null!', '1', '1'), ('Trop bon les Ferrero à quand les ferrero gratuits', '2', '2'), ('ouaw je suis bourré', '5', '3');
