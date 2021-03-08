@@ -10,3 +10,7 @@
       1) récupérer l'id de la person crée ==> il est stocké dans le return iD
       2) récupérer l'id de la media crée ==> stocké dans le return iD
       3) Créer la ligne dans la table de liaison avec ces infos
+
+### commande d'import de données
+
+psql -U nomad -h localhost -d nomad -f app/data/insert.sql 

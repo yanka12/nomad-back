@@ -90,64 +90,61 @@ try {
 }
 },
 
-// submitLoginForm: async (req, res) => {
-// try {
-//     const errors = [];
+submitLoginForm: async (req, res) => {
+try {
+    const errors = [];
 
-//     // on vérifie que l'utilisateur a bien rempli les champs
-//     if (req.body.email.length === 0 || req.body.password.length === 0) {
-//     errors.push('Veuillez remplir tous les champs');
-//     }
+    // on vérifie que l'utilisateur a bien rempli les champs
+    if (req.body.email.length === 0 || req.body.password.length === 0) {
+    errors.push('Veuillez remplir tous les champs');
+    }
 
-//     // vérifier que l'email existe en BDD => User
-//     // comparer le password du form avec le hash de ka BDD
-//     // si c'est pas bon lui donner un message d'erreur
-//     // si c'est bon le connecter
-//     // persistance de la connexion => session
+    // vérifier que l'email existe en BDD => User
+    // comparer le password du form avec le hash de ka BDD
+    // si c'est pas bon lui donner un message d'erreur
+    // si c'est bon le connecter
+    // persistance de la connexion => session
     
-//     // si on a des erreurs on rend la vue avec ces erreurs
-//     if (errors.length) {
-//     res.json('login', {errors});
-//     }
-//     // sinon on chercher l'utilisateur en BDD
-//     else {
-//     const user = await personMapper.findOne({
-//         where: {
-//         email: req.body.email
-//         }
-//     });
+    // si on a des erreurs on rend la vue avec ces erreurs
+    // if (errors.length) {
+    //     res.json({error:error.message})
+    // }
+    // sinon on chercher l'utilisateur en BDD
 
-//     // à partir d'ici, si on a un utilisateur, on le redirige sur la page d'accueil
-//     // si le user est null on redirige sur la page d'inscription 
-//     if (!user) {
-//         errors.push('Veuillez vérifier vos identifiants');
-//         res.render('login', {errors});
-//     }
-//     else {
-//         // si on a trouvé un utilisateur, il va falloir comparer le mdp
-//         // des données en post avec le hash de la BDD
-//         // pour faire ça bcrypt propose une fonction compareSync
-//         const isValidPassword = await bcrypt.compare(req.body.password, user.password);
+    const user = await personMapper.findOneByEmail(req.body.email);
+    
+
+    // à partir d'ici, si on a un utilisateur, on le redirige sur la page d'accueil
+    // si le user est null on redirige sur la page d'inscription 
+    if (!user) {
+        errors.push('Veuillez vérifier vos identifiants');
+        res.json({error:error.message})
+    }
+    else {
+        // si on a trouvé un utilisateur, il va falloir comparer le mdp
+        // des données en post avec le hash de la BDD
+        // pour faire ça bcrypt propose une fonction compareSync
+        const isValidPassword = await bcrypt.compare(req.body.password, user.password);
         
-//         // si le password est valide on va le redirier sur la page d'accueil et stocker ses infos => session
-//         // on va pouvoir masquer les liens du menu "se connecter" et "s'inscrire",
-//         // afficher son nom et le lien déconnecter
-//         if (isValidPassword) {
-//         // on stocke les infos du user en session
-//         req.session.user = user;
-//         // et on le redirige
-//         res.redirect('/');
-//         }
-//         else {
-//         errors.push('Veuillez vérifier vos identifiants');
-//         res.render('login', {errors});
-//         }
-//     }
-//     }
-//     } catch (error) {
-//         console.trace(error);
-//     }
-// },
+        // si le password est valide on va le redirier sur la page d'accueil et stocker ses infos => session
+        // on va pouvoir masquer les liens du menu "se connecter" et "s'inscrire",
+        // afficher son nom et le lien déconnecter
+        if (isValidPassword) {
+        // on stocke les infos du user en session
+        req.session.user = user;
+        // et on le redirige
+        res.status(201).json({message:'Utilisateur connecté avec succes'});
+        }
+        else {
+        errors.push('Veuillez vérifier vos identifiants');
+        res.json({error:error.message})
+    }
+    }
+
+} catch (error) {
+        console.trace(error);
+    }
+},
 
 };
 
