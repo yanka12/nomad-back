@@ -23,7 +23,27 @@ findOne: async (id) => {
   // à partir des données brutes, je crée une instance
   return new Person(result.rows[0]);
   
+},
+
+findOneByEmail: async (email) => {
+  // ici on écriit la requête qui va permettre d'aller chercher les données dans la bdd
+const result = await db.query(`
+    SELECT * 
+    FROM person
+    WHERE email = $1;
+`, [email]);
+console.log(result.rows[0]);
+if (!result.rows[0]) { // si pas de données
+  // le constructeur d'une Erreur attend un message en argument
+  throw new Error("Pas de personne avec l'email " + email);
+}
+
+
+// à partir des données brutes, je crée une instance
+return new Person(result.rows[0]);
+
 }, 
+
 // cette méthode permet d'insérer un nouveau profil dans la bdd
 save: async (thePerson) => {
 

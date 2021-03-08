@@ -15,7 +15,17 @@ POST {{baseUrl}}/profil
 Content-Type: application/json
 
 {
-    "nickname": "Maher",
-    "email": "m82.ayari@yahoo.fr",
+    "nickname": "jean louis",
+    "email": "jl@yahoo.fr",
+    "password": "js4life"
+}
+
+### Route POST /login
+POST {{baseUrl}}/signup
+Content-Type: application/json
+
+{
+    "nickname": "jean louis",
+    "email": "guillaume.cuvillers@hotmail.fr",
     "password": "js4life"
 }
