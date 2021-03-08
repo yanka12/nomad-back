@@ -9,7 +9,7 @@ const db = new Pool({
         password: process.env.PG_PWD,
         database: process.env.PG_DATABASE,
         host: process.env.PG_HOST,
-        port: process.env.PG_PORT,
+
 });
 
 // maintenant, on n'a plus un seul connecteur mais un pool de connecteurs
