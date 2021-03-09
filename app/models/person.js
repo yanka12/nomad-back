@@ -3,7 +3,7 @@ class Person {
     nickname;
     email;
     password;
-    role_name;
+    role_id;
 
     constructor(data) {
         for (const prop in data) {
