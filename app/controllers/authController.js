@@ -143,6 +143,7 @@ try {
     }
 },
 
+
 };
 
 module.exports = authController;
