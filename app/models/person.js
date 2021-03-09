@@ -3,7 +3,7 @@ class Person {
     nickname;
     email;
     password;
-  
+    
     constructor(data) {
         for (const prop in data) {
             this[prop] = data[prop];

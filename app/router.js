@@ -25,5 +25,4 @@ router.post('/signup', authController.SubmitSignupForm);
 
 router.post('/login', authController.submitLoginForm);
 
-
 module.exports = router;

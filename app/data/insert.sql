@@ -29,7 +29,7 @@ INSERT INTO article ("name","description","content") VALUES ('Haribo', 'ceci est
 
 INSERT INTO media ("link") VALUES ('mipuzbozih'), ('lmjsscpcmkjqcomz'), ('pjzqdncozqnfù'), ('qmkjcnmkcjnmkcnj'), ('mkqjdncojznco'), ('qmkdijmkjn');
 
-INSERT INTO category_article ("artcile_id", "category_id") VALUES ('1', '3'), ('2', '1'), ('3','2');
+INSERT INTO category_article ("article_id", "category_id") VALUES ('1', '3'), ('2', '1'), ('3','2');
 
 INSERT INTO person_media ("person_id", "media_id") VALUES ('1', '1'), ('2','2'), ('3','3'), ('4','4');
 
