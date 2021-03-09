@@ -104,16 +104,12 @@ try {
     // si c'est pas bon lui donner un message d'erreur
     // si c'est bon le connecter
     // persistance de la connexion => session
-    
     // si on a des erreurs on rend la vue avec ces erreurs
     // if (errors.length) {
     //     res.json({error:error.message})
     // }
     // sinon on chercher l'utilisateur en BDD
-
     const user = await personMapper.findOneByEmail(req.body.email);
-    
-
     // à partir d'ici, si on a un utilisateur, on le redirige sur la page d'accueil
     // si le user est null on redirige sur la page d'inscription 
     if (!user) {
@@ -132,8 +128,9 @@ try {
         if (isValidPassword) {
         // on stocke les infos du user en session
         req.session.user = user;
+
         // et on le redirige
-        res.status(201).json({message:'Utilisateur connecté avec succes'});
+        res.status(201).json({user, message:'Utilisateur connecté avec succes'});
         }
         else {
         errors.push('Veuillez vérifier vos identifiants');
