@@ -60,8 +60,8 @@ category_id int NOT NULL
 );
 
 CREATE TABLE "role" (
-id int GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-"name" int NOT NULL
+id int GENERATED ALWAYS AS IDENTITY,
+"name" int NOT NULL PRIMARY KEY
 );
 
 CREATE TABLE person_media (
