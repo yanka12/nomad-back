@@ -39,3 +39,7 @@ Content-Type: application/json
     "email": "ChuckNorris@hotmail.fr",
     "password": "js4life"
 }
+
+### Route DELETE /profil
+DELETE {{baseUrl}}/profil/3
+Content-Type: application/json

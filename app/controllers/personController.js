@@ -46,7 +46,28 @@ getAllPerson: async (request, response) => {
     const persons = await personMapper.findAll();
 
     response.json(persons);
-}
+},
+
+deleteUser: async (req, res, next) => {
+    try {
+        const { id } = req.params;
+        console.log(id);
+        const user = await personMapper.findOne(id);
+        console.log(user);
+        // TODO delete tous les medias créés par la personne
+        // cherche les médias
+        // on les delete
+        await personMapper.deleteUser(id);
+        res.status(200).json ({
+            ok: true,
+            message: `${id} a bien été supprimé`
+        })
+    }
+    catch(err) {
+        console.trace(err)
+        next(err);
+    }
+},
 
 };
 
