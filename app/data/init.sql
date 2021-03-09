@@ -16,14 +16,17 @@ DROP TABLE IF EXISTS person_media CASCADE;
 DROP TABLE IF EXISTS article_media CASCADE;
 DROP TABLE IF EXISTS have;
 
-
+CREATE TABLE "role" (
+id int GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+"name" VARCHAR(50) NOT NULL
+);
 
 CREATE TABLE person (
 id int GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
 nickname VARCHAR(50) NOT NULL,
 email VARCHAR(128) NOT NULL UNIQUE,
 "password" text NOT NULL,
-"role_name" VARCHAR(50) NOT NULL REFERENCES "role"("name"),
+role_id int REFERENCES "role"(id),
 created_at TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP 
 );
 
@@ -49,31 +52,26 @@ created_at TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP
 CREATE TABLE comment (
 id int GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
 content text NOT NULL,
-person_id int NOT NULL REFERENCES person(id),
-article_id int NOT NULL REFERENCES article(id),
+person_id int NOT NULL REFERENCES person(id) ON DELETE CASCADE,
+article_id int NOT NULL REFERENCES article(id) ON DELETE CASCADE,
 created_at TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP 
 );
 
 CREATE TABLE category_article (
-article_id int NOT NULL,
-category_id int NOT NULL
-);
-
-CREATE TABLE "role" (
-id int GENERATED ALWAYS AS IDENTITY,
-"name" int NOT NULL PRIMARY KEY
+article_id int NOT NULL REFERENCES article(id) ON DELETE CASCADE,
+category_id int NOT NULL REFERENCES category(id) ON DELETE CASCADE
 );
 
 CREATE TABLE person_media (
 id int GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-person_id int NOT NULL REFERENCES person(id),
-media_id int NOT NULL REFERENCES media(id)
+person_id int NOT NULL REFERENCES person(id) ON DELETE CASCADE,
+media_id int NOT NULL REFERENCES media(id) ON DELETE CASCADE
 );
 
 CREATE TABLE article_media (
 id int GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-article_id int NOT NULL REFERENCES article(id),
-media_id int NOT NULL REFERENCES media(id)
+article_id int NOT NULL REFERENCES article(id) ON DELETE CASCADE,
+media_id int NOT NULL REFERENCES media(id) ON DELETE CASCADE
 );
 
 CREATE TABLE have  (

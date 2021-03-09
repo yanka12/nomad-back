@@ -13,4 +13,6 @@
 
 ### commande d'import de données
 
+psql -U nomad -h localhost -d nomad -f app/data/init.sql 
+
 psql -U nomad -h localhost -d nomad -f app/data/insert.sql 
