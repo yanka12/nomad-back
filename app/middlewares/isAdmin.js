@@ -1,8 +1,12 @@
-const isAdmin = (req, res, next) => {
+
+
+const isAdmin = async (req, res, next) => {
   // si l'utilisateur n'a pas le rôle admin
   // on rend la vue 403
-  if (req.session.user.role !== 'admin') {
-    res.status(403).render('403');
+  //console.log(req.session.role_id);
+  if (req.session.user.role_id !== 1) {
+    
+    await res.status(403).json({"error":"not authorized"});
   }
 
   next();

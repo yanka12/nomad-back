@@ -128,13 +128,12 @@ try {
         if (isValidPassword) {
         // on stocke les infos du user en session
         req.session.user = user;
-
         // et on le redirige
-        res.status(201).json({user, message:'Utilisateur connecté avec succes'});
+        res.status(201).json({user:"je suis le user de l'authController", message:'Utilisateur connecté avec succes'});
         }
         else {
         errors.push('Veuillez vérifier vos identifiants');
-        res.json({error:error.message})
+        res.status(401).json({"error":"invalid connection information"});
     }
     }
 
@@ -142,6 +141,7 @@ try {
         console.trace(error);
     }
 },
+
 
 
 };

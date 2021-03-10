@@ -26,9 +26,8 @@ Content-Type: application/json
 
 {
     "nickname": "Chuck Norris",
-    "email": "kjqsshbhjssb@hotmail.fr",
-    "password": "js4life",
-    "role_id": "1"
+    "email": "psdjmj@qsdh.com",
+    "password": "Audy0714"
 }
 
 ### Route POST /login
@@ -37,10 +36,13 @@ Content-Type: application/json
 
 {
     "nickname": "Chuck Norris",
-    "email": "ChuckNorris@hotmail.fr",
-    "password": "js4life"
+    "email": "psdjmj@qsdh.com",
+    "password": "Audy0714"
 }
 
 ### Route DELETE /profil
 DELETE {{baseUrl}}/profil/2
 Content-Type: application/json
+
+### Route GET /admin
+GET  {{baseUrl}}/admin
