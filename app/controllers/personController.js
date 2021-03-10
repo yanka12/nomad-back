@@ -48,7 +48,6 @@ getAllPerson: async (request, response) => {
     response.json(persons);
 },
 
-
 deleteUser: async (req, res, next) => {
     try {
         const { id } = req.params;

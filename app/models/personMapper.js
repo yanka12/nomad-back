@@ -86,7 +86,8 @@ deleteUser: async (id) => {
     FROM person
     WHERE id = $1;
     `, [id]);
-}
+},
+
 
 }
 module.exports = personMapper;
