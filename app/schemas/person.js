@@ -5,8 +5,10 @@ const personSchema = Joi.object({
     email: Joi.string()
     .email({ minDomainSegments: 2, tlds: { allow: ['com', 'net', 'fr'] } }),
     password: Joi.string()
-    .pattern(new RegExp('^[a-zA-Z0-9]{3,30}$')),
+    .min(6)
+    .pattern(new RegExp('^[a-zA-Z0-9]{3,30}$'))
+    .required(),
     role_id: Joi.number().integer(),
-}).xor('role_id');
+});
 
 module.exports = personSchema;
