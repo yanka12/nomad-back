@@ -28,6 +28,26 @@ findOne: async (id) => {
       return new Article(result.rows[0]);
       
     },
+
+save: async (theArticle) => {
+
+        let query;
+      
+        // toutes les données en commun sont préparées
+        const data = [
+            theArticle.name,
+            theArticle.description,
+            theArticle.content,
+        ];
+      
+        
+            query = "INSERT INTO article (name, description, content) VALUES ($1, $2, $3) RETURNING id;";
+      
+            const { rows } = await db.query(query, data);
+            theArticle.id = rows[0].id;
+            
+        
+      },
 };
 
 module.exports = articleMapper;
