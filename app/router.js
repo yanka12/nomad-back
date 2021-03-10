@@ -16,6 +16,7 @@ const isAdmin = require('./middlewares/isAdmin');
 router.get('/profil', personController.getAllPerson);
 router.get('/profil/:id', personController.getOnePerson);
 router.post('/profil', personController.newPerson);
+router.delete('/profil/:id', personController.deleteUser);
 
 // gestion de l'inscription
 
