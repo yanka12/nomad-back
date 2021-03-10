@@ -20,14 +20,14 @@ Content-Type: application/json
     "password": "js4life"
 }
 
-### Route POST /singup
+### Route POST /signup
 POST {{baseUrl}}/signup
 Content-Type: application/json
 
 {
     "nickname": "Chuck Norris",
-    "email": "ChuckNorris@hotmail.fr",
-    "password": "js4life"
+    "email": "psdjmj@qsdh.com",
+    "password": "Audy0714"
 }
 
 ### Route POST /login
@@ -36,13 +36,17 @@ Content-Type: application/json
 
 {
     "nickname": "Chuck Norris",
-    "email": "ChuckNorris@hotmail.fr",
-    "password": "js4life"
+    "email": "psdjmj@qsdh.com",
+    "password": "Audy0714"
 }
 
 ### Route DELETE /profil
 DELETE {{baseUrl}}/profil/2
 Content-Type: application/json
+
+
+### Route GET /admin
+GET  {{baseUrl}}/admin
 
 ### Route GET /categories
 GET {{baseUrl}}/categories
@@ -55,4 +59,3 @@ GET {{baseUrl}}/articles
 
 ### Route GET /article
 GET {{baseUrl}}/article/2
-

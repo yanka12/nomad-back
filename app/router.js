@@ -36,6 +36,9 @@ router.post('/signup', validateBody(personSchema), authController.SubmitSignupFo
 // gestion de la connexion
 router.post('/login', authController.submitLoginForm);
 
+// gestion de l'admin
+router.get('/admin',  isConnected, isAdmin, adminController.getAdminInfo);
+
 
 
 
