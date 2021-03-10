@@ -48,6 +48,15 @@ save: async (theArticle) => {
             
         
       },
+
+deleteArticle: async (id) => {
+        console.log('id', id);
+        await db.query(`
+          DELETE
+          FROM article
+          WHERE id = $1;
+          `, [id]);
+      },
 };
 
 module.exports = articleMapper;
