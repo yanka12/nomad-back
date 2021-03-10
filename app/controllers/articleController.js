@@ -38,6 +38,22 @@ newArticle: async (request, response) => {
         response.status(403).json(err.message);
     }
 },
+
+deleteArticle: async (req, res, next) => {
+    try {
+        const { id } = req.params;
+        const user = await articleMapper.findOne(id);
+        await articleMapper.deleteArticle(id);
+        res.status(200).json ({
+            ok: true,
+            message: `l\'article ${id} a bien été supprimé`
+        })
+    }
+    catch(err) {
+        console.trace(err)
+        next(err);
+    }
+},
 }
 
 module.exports = articleController;

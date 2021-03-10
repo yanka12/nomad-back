@@ -51,9 +51,7 @@ getAllPerson: async (request, response) => {
 deleteUser: async (req, res, next) => {
     try {
         const { id } = req.params;
-        console.log(id);
         const user = await personMapper.findOne(id);
-        console.log(user);
         // TODO delete tous les medias créés par la personne
         // cherche les médias
         // on les delete

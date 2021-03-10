@@ -69,3 +69,8 @@ Content-Type: application/json
     "description": "Ceci est un article sur les Kinders",
     "content": "Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. Le ..."
 }
+
+
+### Route DELETE /article
+DELETE {{baseUrl}}/article/6
+Content-Type: application/json
