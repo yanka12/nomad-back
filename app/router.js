@@ -24,6 +24,7 @@ router.delete('/profil/:id', personController.deleteUser);
 
 // Category
 router.get('/category', categoryController.getAllCategories);
+router.get('/category/:id', categoryController.getOneCategory);
 
 // gestion de l'inscription
 router.post('/signup', validateBody(personSchema), authController.SubmitSignupForm);

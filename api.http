@@ -46,3 +46,6 @@ Content-Type: application/json
 
 ### Route GET /categories
 GET {{baseUrl}}/category
+
+### Route GET /category
+GET {{baseUrl}}/category/1
