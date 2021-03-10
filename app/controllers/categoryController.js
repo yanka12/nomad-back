@@ -18,8 +18,7 @@ getOneCategory: async (request, response) => {
             response.json(category);
             
             
-        } catch (err) { // l'Error qu'on a throw dans le mapper est récupérée ici
-            // et sa propriété message correspond à la string qu'on a passée en argument du constructeur
+        } catch (err) {
             response.status(404).json(err.message);
         }
 },

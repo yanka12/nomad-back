@@ -45,7 +45,14 @@ DELETE {{baseUrl}}/profil/2
 Content-Type: application/json
 
 ### Route GET /categories
-GET {{baseUrl}}/category
+GET {{baseUrl}}/categories
 
 ### Route GET /category
 GET {{baseUrl}}/category/1
+
+### Route GET /article
+GET {{baseUrl}}/articles
+
+### Route GET /article
+GET {{baseUrl}}/article/2
+
