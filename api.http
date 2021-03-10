@@ -20,7 +20,7 @@ Content-Type: application/json
     "password": "js4life"
 }
 
-### Route POST /singup
+### Route POST /signup
 POST {{baseUrl}}/signup
 Content-Type: application/json
 
@@ -44,5 +44,18 @@ Content-Type: application/json
 DELETE {{baseUrl}}/profil/2
 Content-Type: application/json
 
+
 ### Route GET /admin
 GET  {{baseUrl}}/admin
+
+### Route GET /categories
+GET {{baseUrl}}/categories
+
+### Route GET /category
+GET {{baseUrl}}/category/1
+
+### Route GET /article
+GET {{baseUrl}}/articles
+
+### Route GET /article
+GET {{baseUrl}}/article/2

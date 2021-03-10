@@ -16,11 +16,19 @@ const { validateBody } = require('./services/validator');
 
 const personSchema = require('./schemas/person');
 
-
-router.get('/profil', personController.getAllPerson);
+// Profil
+router.get('/profils', personController.getAllPerson);
 router.get('/profil/:id', personController.getOnePerson);
 router.post('/profil', personController.newPerson);
 router.delete('/profil/:id', personController.deleteUser);
+
+// Category
+router.get('/categories', categoryController.getAllCategories);
+router.get('/category/:id', categoryController.getOneCategory);
+
+// Article
+router.get('/articles', articleController.getAllArticle);
+router.get('/article/:id', articleController.getOneArticle);
 
 // gestion de l'inscription
 router.post('/signup', validateBody(personSchema), authController.SubmitSignupForm);
