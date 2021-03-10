@@ -78,6 +78,7 @@ findAll: async () => {
   // la fonction map, ici, nous renvoit un tableau d'objet et à chaque person qu'il trouve il les retourne, sous forme d'instances de Post
   return result.rows.map(person => new Person(person));
 },
+
 deleteUser: async (id) => {
   console.log('id', id);
   await db.query(`
@@ -86,6 +87,7 @@ deleteUser: async (id) => {
     WHERE id = $1;
     `, [id]);
 },
+
 
 }
 module.exports = personMapper;
