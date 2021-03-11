@@ -9,9 +9,9 @@ SELECT
         p.*,
         m.link
     FROM person AS p
-    JOIN person_media AS pm
+    LEFT JOIN person_media AS pm
     ON p.id = pm.person_id
-    JOIN media AS m
+    LEFT JOIN media AS m
     ON m.id = pm.media_id
     WHERE p.id = $1;
 `, [id]);
