@@ -8,6 +8,7 @@ const categoryController = require('./controllers/categoryController');
 const personController = require('./controllers/personController');
 const articleController = require('./controllers/articleController');
 const adminController = require('./controllers/adminController');
+const commentController = require('./controllers/commentController');
 
 const isConnected = require('./middlewares/isConnected');
 const isAdmin = require('./middlewares/isAdmin');
@@ -31,7 +32,14 @@ router.get('/category/:id', categoryController.getOneCategory);
 router.get('/articles', articleController.getAllArticle);
 router.get('/article/:id', articleController.getOneArticle);
 router.post('/article', articleController.newArticle);
-router.delete('/article/:id', articleController.deleteArticle)
+router.delete('/article/:id', articleController.deleteArticle);
+
+// Comment
+router.get('/comments', commentController.getAllComment);
+router.get('/comment/:id', commentController.getOneComment);
+router.post('/comment', commentController.newComment);
+router.delete('/comment/:id', commentController.deleteComment);
+router.put('/comment/:id', commentController.updateComment);
 
 // gestion de l'inscription
 router.post('/signup', validateBody(personSchema), authController.SubmitSignupForm);

@@ -54,6 +54,6 @@ deleteArticle: async (req, res, next) => {
         next(err);
     }
 },
-}
+};
 
 module.exports = articleController;
