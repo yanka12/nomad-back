@@ -8,8 +8,8 @@
 ### Route GET /profils
 GET {{baseUrl}}/profils
 
-### Route GET /person
-GET {{baseUrl}}/profil/2
+### Route GET /profil
+GET {{baseUrl}}/profil/53
 
 
 ### Route POST /profil
@@ -47,7 +47,7 @@ PUT {{baseUrl}}/profil/53
 Content-Type: application/json
 
 {
-    "nickname": "Chuck",
+    "nickname": "chikk",
     "email": "qksmjdncpddjn@mqslkdj.fr",
     "password": "sjkdnkqjsnd"
 }
