@@ -9,10 +9,16 @@ const personMapper = {
 findOne: async (id) => {
     // ici on écriit la requête qui va permettre d'aller chercher les données dans la bdd
   const result = await db.query(`
-      SELECT * 
-      FROM person
-      WHERE id = $1;
-  `, [id]);
+      SELECT
+      p.*,
+      m.link
+    FROM person AS p
+    LEFT JOIN person_media AS pm
+    ON p.id = pm.person_id
+    LEFT JOIN media AS m
+    ON m.id = pm.media_id
+    WHERE p.id = $1;
+`, [id]);
   if (!result.rows[0]) { // si pas de données
     // le constructeur d'une Erreur attend un message en argument
     throw new Error("Pas de personne avec l'id " + id);
@@ -87,7 +93,7 @@ deleteUser: async (id) => {
     `, [id]);
 },
 
-updatePerson: async (thePerson, id) => {
+updateArticle: async (thePerson, id) => {
 
 const person = [
   thePerson.nickname,

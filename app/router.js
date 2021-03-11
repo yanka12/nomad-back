@@ -31,7 +31,9 @@ router.get('/category/:id', categoryController.getOneCategory);
 router.get('/articles', articleController.getAllArticle);
 router.get('/article/:id', articleController.getOneArticle);
 router.post('/article', articleController.newArticle);
-router.delete('/article/:id', articleController.deleteArticle)
+router.delete('/article/:id', articleController.deleteArticle);
+router.put('/article/:id', articleController.editArticle);
+
 
 // gestion de l'inscription
 router.post('/signup', validateBody(personSchema), authController.SubmitSignupForm);

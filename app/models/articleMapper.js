@@ -15,10 +15,10 @@ findAll: async () => {
 findOne: async (id) => {
         console.log('id', id)
       const result = await db.query(`
-          SELECT * 
-          FROM article
-          WHERE id = $1;
-      `, [id]);
+      SELECT * 
+      FROM article
+      WHERE id = $1
+`, [id]);
       console.log(result.rows[0]);
       if (!result.rows[0]) { 
         
@@ -57,6 +57,35 @@ deleteArticle: async (id) => {
           WHERE id = $1;
           `, [id]);
       },
+
+updateArticle: async (theArticle, id) => {
+
+  const article = [
+    theArticle.name,
+    theArticle.description,
+    theArticle.content,
+    id
+  ];
+  //console.log(thePerson);
+    let queryArticle = (`
+        UPDATE article
+        SET name = $1,
+            description = $2,
+            content = $3
+        WHERE id = $4
+        RETURNING *;
+        `);  
+        try {
+          let result  = await db.query(queryArticle, article);
+  
+          console.log(result.rows[0]);
+          return result.rows[0];
+  
+        } catch (error) {
+          console.log(error);
+        }
+  
+  }
 };
 
 module.exports = articleMapper;

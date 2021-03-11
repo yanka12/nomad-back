@@ -72,6 +72,7 @@ GET {{baseUrl}}/articles
 ### Route GET /article
 GET {{baseUrl}}/article/2
 
+
 ### Route POST /article
 POST {{baseUrl}}/article
 Content-Type: application/json
@@ -87,3 +88,10 @@ Content-Type: application/json
 DELETE {{baseUrl}}/article/6
 Content-Type: application/json
 
+### Route PUT /article/:id
+PUT {{baseUrl}}/article/2
+Content-Type: application/json
+
+{
+    "name": "Ferrero"
+}
