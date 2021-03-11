@@ -54,6 +54,7 @@ deleteArticle: async (req, res, next) => {
         next(err);
     }
 },
+
 editArticle: async (req, res, next) => {
     const id = Number(req.params.id);  
     
@@ -74,7 +75,7 @@ editArticle: async (req, res, next) => {
     } catch (err) {
         res.status(404).json({"error":"je suis ta pire erreur"});
     }
-}
-}
+  }
+};
 
 module.exports = articleController;

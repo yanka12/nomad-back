@@ -1,7 +1,10 @@
 const Person = require('./person');
+const Media = require('./media');
+
 
 const db = require('../database');
 const { request } = require('express');
+const { link } = require('joi');
 
 // DataMapper de person, il gère les requêtes des profils utilisateurs
 const personMapper = {
@@ -19,6 +22,7 @@ findOne: async (id) => {
     ON m.id = pm.media_id
     WHERE p.id = $1;
 `, [id]);
+
   if (!result.rows[0]) { // si pas de données
     // le constructeur d'une Erreur attend un message en argument
     throw new Error("Pas de personne avec l'id " + id);
@@ -120,8 +124,32 @@ const person = [
         console.log(error);
       }
 
-}
+},
 
-
+updatePerson: async (thePerson, id) => {
+  const person = [
+    thePerson.nickname,
+    thePerson.email,
+    thePerson.password,
+    id
+  ];
+  //console.log(thePerson);
+    let queryPerson = (`
+        UPDATE person
+        SET nickname = $1,
+            email = $2,
+            password = $3
+        WHERE id = $4
+        RETURNING *;
+        `);  
+        try {
+          let result  = await db.query(queryPerson, person);
+          console.log(result.rows[0]);
+          return result.rows[0];
+        } catch (error) {
+          console.log(error);
+        }
+  }
 };
+
 module.exports = personMapper;

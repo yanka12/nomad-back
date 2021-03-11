@@ -17,7 +17,6 @@ SELECT
 , [id]);
 
 -- Selection d'un article avec ses différentes tables de liaisons
-
 SELECT
         a.*,
         m.link,
@@ -32,3 +31,10 @@ SELECT
     LEFT JOIN category AS c
     ON c.id = ca.category_id
     WHERE a.id = $1;
+
+-- Modification d'un champ d'un table
+UPDATE person
+    SET nickname = $1,
+        email = $2,
+        password = $3
+    WHERE id = $4
