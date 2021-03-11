@@ -69,6 +69,30 @@ deleteUser: async (req, res, next) => {
     }
 },
 
+updatePerson: async (req, res, next) => {
+    const id = Number(req.params.id);  
+    
+    let result = await personMapper.findOne(id);
+
+    const properties = ['nickname', 'email', 'password', 'role_id'];
+
+    for (const prop in req.body) {
+        if (properties.includes(prop)) {
+            result[prop] = req.body[prop];
+        }
+    }
+    try {
+        // pas de retour, postMapper intervient directement sur son paramètre, l'objet étant passé par référence
+        const editPerson = await personMapper.updatePerson(result, id);
+
+        res.json(editPerson);
+    } catch (err) {
+        res.status(404).json({"error":"je suis ta pire erreur"});
+    }
+}
+
 };
+
+
 
 module.exports = personController;

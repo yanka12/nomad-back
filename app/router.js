@@ -21,6 +21,7 @@ router.get('/profils', personController.getAllPerson);
 router.get('/profil/:id', personController.getOnePerson);
 router.post('/profil', personController.newPerson);
 router.delete('/profil/:id', personController.deleteUser);
+router.put('/profil/:id', personController.updatePerson);
 
 // Category
 router.get('/categories', categoryController.getAllCategories);

@@ -1,19 +1,18 @@
 const Person = require('./person');
 
 const db = require('../database');
+const { request } = require('express');
 
 // DataMapper de person, il gère les requêtes des profils utilisateurs
 const personMapper = {
   // cette méthode permet de récupérer un profil particulier grace a son id c'est une fonction asynchrone qui va de paire avec 'await'
 findOne: async (id) => {
-    console.log('id', id)
     // ici on écriit la requête qui va permettre d'aller chercher les données dans la bdd
   const result = await db.query(`
       SELECT * 
       FROM person
       WHERE id = $1;
   `, [id]);
-  console.log(result.rows[0]);
   if (!result.rows[0]) { // si pas de données
     // le constructeur d'une Erreur attend un message en argument
     throw new Error("Pas de personne avec l'id " + id);
@@ -88,6 +87,35 @@ deleteUser: async (id) => {
     `, [id]);
 },
 
+updatePerson: async (thePerson, id) => {
+
+const person = [
+  thePerson.nickname,
+  thePerson.email,
+  thePerson.password,
+  id
+];
+//console.log(thePerson);
+  let queryPerson = (`
+      UPDATE person
+      SET nickname = $1,
+          email = $2,
+          password = $3
+      WHERE id = $4
+      RETURNING *;
+      `);  
+      try {
+        let result  = await db.query(queryPerson, person);
+
+        console.log(result.rows[0]);
+        return result.rows[0];
+
+      } catch (error) {
+        console.log(error);
+      }
 
 }
+
+
+};
 module.exports = personMapper;
