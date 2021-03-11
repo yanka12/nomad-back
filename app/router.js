@@ -11,6 +11,7 @@ const adminController = require('./controllers/adminController');
 
 const isConnected = require('./middlewares/isConnected');
 const isAdmin = require('./middlewares/isAdmin');
+const isNomad = require('./middlewares/isNomad');
 
 const { validateBody } = require('./services/validator');
 
@@ -21,7 +22,7 @@ router.get('/profils', personController.getAllPerson);
 router.get('/profil/:id', personController.getOnePerson);
 router.post('/profil', personController.newPerson);
 router.delete('/profil/:id', personController.deleteUser);
-router.put('/profil/:id', personController.updatePerson);
+router.put('/profil/:id', isConnected, isNomad, personController.updatePerson);
 
 // Category
 router.get('/categories', categoryController.getAllCategories);
