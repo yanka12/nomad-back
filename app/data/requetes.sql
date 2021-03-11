@@ -14,4 +14,12 @@ SELECT
     LEFT JOIN media AS m
     ON m.id = pm.media_id
     WHERE p.id = $1;
-`, [id]);
+, [id]);
+
+-- Modification d'un champ d'un table
+
+UPDATE person
+    SET nickname = $1,
+        email = $2,
+        password = $3
+    WHERE id = $4

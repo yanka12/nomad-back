@@ -8,6 +8,7 @@
 ### Route GET /profils
 GET {{baseUrl}}/profils
 
+
 ### Route GET /profil/id
 GET {{baseUrl}}/profil/2
 
@@ -27,9 +28,10 @@ POST {{baseUrl}}/signup
 Content-Type: application/json
 
 {
-    "nickname": "Chuck Norris",
-    "email": "psdjmj@qsdh.com",
-    "password": "Audy0714"
+    "nickname": "nomad",
+    "email": "nomad@nomad.com",
+    "password": "Audy0714",
+    "role_id": 2
 }
 
 ### Route POST /login
@@ -37,19 +39,18 @@ POST {{baseUrl}}/login
 Content-Type: application/json
 
 {
-    "nickname": "Chuck Norris",
-    "email": "psdjmj@qsdh.com",
+    "id": 54,
+    "nickname": "nomad",
+    "email": "nomad@nomad.com",
     "password": "Audy0714"
 }
 
 ### Route PUT /profil/:id
-PUT {{baseUrl}}/profil/53
+PUT {{baseUrl}}/profil/54
 Content-Type: application/json
 
 {
-    "nickname": "Chuck",
-    "email": "qksmjdncpddjn@mqslkdj.fr",
-    "password": "sjkdnkqjsnd"
+    "email": "nomad@nomad.com"
 }
 
 ### Route DELETE /profil
