@@ -15,9 +15,20 @@ findAll: async () => {
 findOne: async (id) => {
         console.log('id', id)
       const result = await db.query(`
-      SELECT * 
-      FROM article
-      WHERE id = $1
+      SELECT
+        a.*,
+        m.link,
+        c.id AS category_id
+    FROM article AS a
+    LEFT JOIN article_media AS am
+    ON a.id = am.article_id
+    LEFT JOIN media AS m
+    ON m.id = am.media_id
+    LEFT JOIN category_article AS ca
+    ON a.id = ca.article_id
+    LEFT JOIN category AS c
+    ON c.id = ca.category_id
+    WHERE a.id = $1;
 `, [id]);
       console.log(result.rows[0]);
       if (!result.rows[0]) { 

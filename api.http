@@ -9,7 +9,7 @@
 GET {{baseUrl}}/profils
 
 ### Route GET /person
-GET {{baseUrl}}/profil/2
+GET {{baseUrl}}/profil/10
 
 
 ### Route POST /profil
