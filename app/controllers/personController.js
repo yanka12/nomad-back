@@ -58,7 +58,7 @@ deleteUser: async (req, res, next) => {
         await personMapper.deleteUser(id);
         res.status(200).json ({
             ok: true,
-            message: `${id} a bien été supprimé`
+            message: `L\'utilisateur ${id} a bien été supprimé`
         })
     }
     catch(err) {
