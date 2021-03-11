@@ -11,7 +11,7 @@ getAllArticle: async (request, response) => {
 
 getOneArticle: async (request, response) => {
         const { id } = request.params;
-        console.log(id);
+        console.log("getOneArticleId", id);
     
         try {
             const article = await articleMapper.findOne(id);
@@ -54,6 +54,28 @@ deleteArticle: async (req, res, next) => {
         next(err);
     }
 },
+
+editArticle: async (req, res, next) => {
+    const id = Number(req.params.id);  
+    
+    let result = await articleMapper.findOne(id);
+
+    const properties = ['name', 'description', 'content'];
+
+    for (const prop in req.body) {
+        if (properties.includes(prop)) {
+            result[prop] = req.body[prop];
+        }
+    }
+    try {
+        // pas de retour, postMapper intervient directement sur son paramètre, l'objet étant passé par référence
+        const changeArticle = await articleMapper.updateArticle(result, id);
+
+        res.json(changeArticle);
+    } catch (err) {
+        res.status(404).json({"error":"je suis ta pire erreur"});
+    }
+  }
 };
 
 module.exports = articleController;

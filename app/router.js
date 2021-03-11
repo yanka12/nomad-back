@@ -34,6 +34,7 @@ router.get('/articles', articleController.getAllArticle);
 router.get('/article/:id', articleController.getOneArticle);
 router.post('/article', articleController.newArticle);
 router.delete('/article/:id', articleController.deleteArticle);
+router.put('/article/:id', articleController.editArticle);
 
 // Comment
 router.get('/comments', commentController.getAllComment);
@@ -50,8 +51,5 @@ router.post('/login', authController.submitLoginForm);
 
 // gestion de l'admin
 router.get('/admin',  isConnected, isAdmin, adminController.getAdminInfo);
-
-
-
 
 module.exports = router;

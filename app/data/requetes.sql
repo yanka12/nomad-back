@@ -16,8 +16,23 @@ SELECT
     WHERE p.id = $1;
 , [id]);
 
--- Modification d'un champ d'un table
+-- Selection d'un article avec ses différentes tables de liaisons
+SELECT
+        a.*,
+        m.link,
+        c.id
+    FROM article AS a
+    LEFT JOIN article_media AS am
+    ON a.id = am.article_id
+    LEFT JOIN media AS m
+    ON m.id = am.media_id
+    LEFT JOIN category_article AS ca
+    ON a.id = ca.article_id
+    LEFT JOIN category AS c
+    ON c.id = ca.category_id
+    WHERE a.id = $1;
 
+-- Modification d'un champ d'un table
 UPDATE person
     SET nickname = $1,
         email = $2,
