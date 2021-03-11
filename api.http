@@ -9,8 +9,8 @@
 GET {{baseUrl}}/profils
 
 
-### Route GET /person
-GET {{baseUrl}}/profil/54
+### Route GET /profil/id
+GET {{baseUrl}}/profil/2
 
 
 ### Route POST /profil
@@ -88,3 +88,32 @@ Content-Type: application/json
 DELETE {{baseUrl}}/article/6
 Content-Type: application/json
 
+### Route GET /comments
+GET {{baseUrl}}/comments
+
+### Route GET /comment/id
+GET {{baseUrl}}/comment/6
+
+### Route POST /comment
+POST {{baseUrl}}/comment
+Content-Type: application/json
+
+{
+    "content": "Trop cool l'ajout de com !",
+    "person_id": 6,
+    "article_id": 2
+}
+
+### Route DELETE /comment
+DELETE {{baseUrl}}/comment/7
+Content-Type: application/json
+
+### Route PUT /profil/:id
+PUT {{baseUrl}}/comment/9
+Content-Type: application/json
+
+{
+    "content": "Je modifie le commentaire",
+    "person_id": 6,
+    "article_id": 2
+}
