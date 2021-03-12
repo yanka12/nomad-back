@@ -1,30 +1,33 @@
-const { response } = require('express');
-const personMapper = require('../dataMappers/personMapper');
-const bcrypt = require('bcrypt');
-const jwt = require('jsonwebtoken');
-const Person = require('../models/person');
+const commentMapper = require('../dataMappers/commentMapper');
+const Comment = require('../models/comment');
 
-const personController = {
+const commentController = {
 
-getOnePerson: async (request, response) => {
+getOneComment: async (request, response) => {
     const { id } = request.params;
     console.log(id);
 
     try {
-        const person = await personMapper.findOne(id);
-        response.json(person);
+        const comment = await commentMapper.findOne(id);
+        response.json(comment);
         
         
     } catch (err) { // l'Error qu'on a throw dans le mapper est récupérée ici
         // et sa propriété message correspond à la string qu'on a passée en argument du constructeur
         response.status(404).json(err.message);
     }
-
+    
 },
 
-newPerson: async (request, response) => {
+getAllComment: async (request, response) => {
+    const comments = await commentMapper.findAll();
+
+    response.json(comments);
+},
+
+newComment: async (request, response) => {
     // on crée directement notre model à partir des données envoyées dans le payload
-    const thePerson = new Person(request.body);
+    const theComment = new Comment(request.body);
     // console.log(request.body);
 
     // ici, thePost peut contenir l'une des 2 propriétés suivantes :
@@ -34,31 +37,23 @@ newPerson: async (request, response) => {
 
     try {
         // pas de retour, postMapper intervient directement sur son paramètre, l'objet étant passé par référence
-        await personMapper.save(thePerson);
+        await commentMapper.save(theComment);
         // console.log(thePerson);
-        response.json(thePerson);
+        response.json(theComment);
     } catch (err) {
         response.status(403).json(err.message);
     }
 },
 
-getAllPerson: async (request, response) => {
-    const persons = await personMapper.findAll();
-
-    response.json(persons);
-},
-
-deleteUser: async (req, res, next) => {
+deleteComment: async (req, res, next) => {
     try {
         const { id } = req.params;
-        const user = await personMapper.findOne(id);
-        // TODO delete tous les medias créés par la personne
-        // cherche les médias
-        // on les delete
-        await personMapper.deleteUser(id);
+        const user = await commentMapper.findOne(id);
+    
+        await commentMapper.deleteComment(id);
         res.status(200).json ({
             ok: true,
-            message: `L\'utilisateur ${id} a bien été supprimé`
+            message: `Le commentaire ${id} a bien été supprimé`
         })
     }
     catch(err) {
@@ -67,12 +62,12 @@ deleteUser: async (req, res, next) => {
     }
 },
 
-updatePerson: async (req, res, next) => {
+updateComment: async (req, res, next) => {
     const id = Number(req.params.id);  
     
-    let result = await personMapper.findOne(id);
+    let result = await commentMapper.findOne(id);
 
-    const properties = ['nickname', 'email', 'password', 'role_id'];
+    const properties = ['content', 'person_id', 'article_id'];
 
     for (const prop in req.body) {
         if (properties.includes(prop)) {
@@ -81,16 +76,13 @@ updatePerson: async (req, res, next) => {
     }
     try {
         // pas de retour, postMapper intervient directement sur son paramètre, l'objet étant passé par référence
-        const editPerson = await personMapper.updatePerson(result, id);
+        const editComment = await commentMapper.updateComment(result, id);
 
-        res.json(editPerson);
+        res.json(editComment);
     } catch (err) {
-        res.status(404).json({"error":"Echec de la modification"});
+        res.status(404).json({"error": "recommence"});
     }
 }
 
 };
-
-
-
-module.exports = personController;
+module.exports = commentController;

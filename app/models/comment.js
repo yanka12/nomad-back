@@ -1,9 +1,8 @@
-class Person {
+class Comment {
     id;
-    nickname;
-    email;
-    password;
-    role_id;
+    content;
+    person_id;
+    article_id;
 
     constructor(data) {
         for (const prop in data) {
@@ -12,4 +11,4 @@ class Person {
     }
 }
 
-module.exports = Person;
+module.exports = Comment;

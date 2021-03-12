@@ -4,13 +4,16 @@
 # @path=v1
 @baseUrl = {{protocol}}://{{domainname}}:{{port}}
 
-### Route GET /person
+#####################################  PROFIL  ######################################################
 
-GET {{baseUrl}}/profil/2
+### Route GET /profils
+GET {{baseUrl}}/profils
+
+### Route GET /profil/:id
+GET {{baseUrl}}/profil/10
 
 
 ### Route POST /profil
-
 POST {{baseUrl}}/profil
 Content-Type: application/json
 
@@ -20,22 +23,142 @@ Content-Type: application/json
     "password": "js4life"
 }
 
-### Route POST /singup
+### Route PUT /profil/:id
+PUT {{baseUrl}}/profil/54
+Content-Type: application/json
+
+{
+    "email": "nomad@nomad.com"
+}
+
+### Route DELETE /profil
+DELETE {{baseUrl}}/profil/2
+Content-Type: application/json
+
+
+##################################################  SIGNUP  ADMIN  LOGIN  ####################################################
+
+### Route POST /signup
 POST {{baseUrl}}/signup
 Content-Type: application/json
 
 {
-    "nickname": "Chuck Norris",
-    "email": "ChuckNorris@hotmail.fr",
-    "password": "js4life"
+    "nickname": "satanas",
+    "email": "satan@hell.com",
+    "password": "js4life",
+    "role_id": 2
 }
+
 
 ### Route POST /login
 POST {{baseUrl}}/login
 Content-Type: application/json
 
 {
-    "nickname": "Chuck Norris",
-    "email": "ChuckNorris@hotmail.fr",
-    "password": "js4life"
+    "id": 54,
+    "nickname": "nomad",
+    "email": "nomad@nomad.com",
+    "password": "Audy0714"
+}
+
+### Route GET /admin
+GET  {{baseUrl}}/admin
+
+####################################### CATEGORY  #################################################################
+
+### Route GET /categories
+GET {{baseUrl}}/categories
+
+### Route GET /category
+GET {{baseUrl}}/category/1
+
+######################################  ARTICLE  ###########################################################
+
+### Route GET /article
+GET {{baseUrl}}/articles
+
+### Route GET /article
+GET {{baseUrl}}/article/2
+
+
+### Route POST /article
+POST {{baseUrl}}/article
+Content-Type: application/json
+
+{
+    "name": "Kinders",
+    "description": "Ceci est un article sur les Kinders",
+    "content": "Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. Le ..."
+}
+
+
+### Route DELETE /article
+DELETE {{baseUrl}}/article/6
+Content-Type: application/json
+
+### Route PUT /article/:id
+PUT {{baseUrl}}/article/2
+Content-Type: application/json
+
+{
+    "name": "Ferrero"
+}
+
+########################################  COMMENT  #######################################################
+
+### Route GET /comments
+GET {{baseUrl}}/comments
+
+### Route GET /comment/id
+GET {{baseUrl}}/comment/6
+
+### Route POST /comment
+POST {{baseUrl}}/comment
+Content-Type: application/json
+
+{
+    "content": "Trop cool l'ajout de com !",
+    "person_id": 6,
+    "article_id": 2
+}
+
+### Route PUT /comment/:id
+PUT {{baseUrl}}/comment/3
+Content-Type: application/json
+
+{
+    "content": "Je modifie encore le commentaire"
+}
+
+### Route DELETE /comment
+DELETE {{baseUrl}}/comment/7
+Content-Type: application/json
+
+##################################  MEDIA  ########################################################################
+
+### Route GET /medias
+GET {{baseUrl}}/medias
+
+### Route GET /media/:id
+GET {{baseUrl}}/media/5
+
+### Route POST /media
+POST {{baseUrl}}/media
+Content-Type: application/json
+
+{
+    "link": "oqpsdnj"
+}
+
+
+### Route DELETE /media
+DELETE {{baseUrl}}/media/7
+Content-Type: application/json
+
+### Route PUT /media/:id
+PUT {{baseUrl}}/media/6
+Content-Type: application/json
+
+{
+    "link": "j'ai encore modifié ton url"
 }

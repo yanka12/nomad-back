@@ -2,7 +2,7 @@ const { response } = require('express');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const emailValidator = require('email-validator');
-const personMapper = require('../models/personMapper');
+const personMapper = require('../dataMappers/personMapper');
 const Person = require('../models/person');
 
 
@@ -128,13 +128,12 @@ try {
         if (isValidPassword) {
         // on stocke les infos du user en session
         req.session.user = user;
-
         // et on le redirige
         res.status(201).json({user, message:'Utilisateur connecté avec succes'});
         }
         else {
         errors.push('Veuillez vérifier vos identifiants');
-        res.json({error:error.message})
+        res.status(401).json({"error":"invalid connection information"});
     }
     }
 
@@ -142,6 +141,8 @@ try {
         console.trace(error);
     }
 },
+
+
 
 };
 
