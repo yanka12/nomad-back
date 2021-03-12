@@ -1,5 +1,5 @@
-const Person = require('./person');
-const Media = require('./media');
+const Person = require('../models/person');
+const Media = require('../models/media');
 
 
 const db = require('../database');

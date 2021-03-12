@@ -2,7 +2,7 @@ const { response } = require('express');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const emailValidator = require('email-validator');
-const personMapper = require('../models/personMapper');
+const personMapper = require('../dataMappers/personMapper');
 const Person = require('../models/person');
 
 

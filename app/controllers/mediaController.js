@@ -1,4 +1,4 @@
-const mediaMapper = require('../models/mediaMapper');
+const mediaMapper = require('../dataMappers/mediaMapper');
 const Media = require('../models/media');
 
 const mediaController = {

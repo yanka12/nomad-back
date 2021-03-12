@@ -1,5 +1,5 @@
 const { response } = require('express');
-const personMapper = require('../models/personMapper');
+const personMapper = require('../dataMappers/personMapper');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const Person = require('../models/person');

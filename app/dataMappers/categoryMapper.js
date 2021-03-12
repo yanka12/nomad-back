@@ -1,4 +1,4 @@
-const Category = require('./category');
+const Category = require('../models/category');
 
 const db = require('../database');
 

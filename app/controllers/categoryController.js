@@ -1,4 +1,4 @@
-const categoryMapper = require('../models/categoryMapper');
+const categoryMapper = require('../dataMappers/categoryMapper');
 const Category = require('../models/category');
 
 const categoryController = {

@@ -1,4 +1,4 @@
-const articleMapper = require('../models/articleMapper');
+const articleMapper = require('../dataMappers/articleMapper');
 const Article = require('../models/article');
 
 const articleController = {

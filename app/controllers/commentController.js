@@ -1,4 +1,4 @@
-const commentMapper = require('../models/commentMapper');
+const commentMapper = require('../dataMappers/commentMapper');
 const Comment = require('../models/comment');
 
 const commentController = {

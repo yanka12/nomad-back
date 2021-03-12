@@ -123,13 +123,11 @@ Content-Type: application/json
 }
 
 ### Route PUT /comment/:id
-PUT {{baseUrl}}/comment/9
+PUT {{baseUrl}}/comment/3
 Content-Type: application/json
 
 {
-    "content": "Je modifie le commentaire",
-    "person_id": 6,
-    "article_id": 2
+    "content": "Je modifie encore le commentaire"
 }
 
 ### Route DELETE /comment
