@@ -129,7 +129,7 @@ try {
         // on stocke les infos du user en session
         req.session.user = user;
         // et on le redirige
-        res.status(201).json({user:"je suis le user de l'authController", message:'Utilisateur connecté avec succes'});
+        res.status(201).json({user, message:'Utilisateur connecté avec succes'});
         }
         else {
         errors.push('Veuillez vérifier vos identifiants');

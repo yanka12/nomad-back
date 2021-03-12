@@ -41,9 +41,9 @@ POST {{baseUrl}}/signup
 Content-Type: application/json
 
 {
-    "nickname": "nomad",
-    "email": "nomad@nomad.com",
-    "password": "Audy0714",
+    "nickname": "satanas",
+    "email": "satan@hell.com",
+    "password": "js4life",
     "role_id": 2
 }
 

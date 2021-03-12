@@ -31,6 +31,11 @@ const router = require('./app/router');
 
 app.use(cors());
 
+app.use(function(req, res, next) {
+    res.setHeader('Content-Range', '0-100/1000')
+    next();
+  });
+
 app.use(express.json());
 
 app.use(router);
