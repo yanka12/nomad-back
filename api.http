@@ -14,6 +14,16 @@ GET {{baseUrl}}/profil/10
 ### Route GET /profil/id
 GET {{baseUrl}}/profil/2
 
+### Route PUT /profil/:id
+PUT {{baseUrl}}/comment/9
+Content-Type: application/json
+
+{
+    "content": "Je modifie le commentaire",
+    "person_id": 6,
+    "article_id": 2
+}
+
 
 
 ### Route POST /profil
@@ -120,12 +130,7 @@ Content-Type: application/json
 DELETE {{baseUrl}}/comment/7
 Content-Type: application/json
 
-### Route PUT /profil/:id
-PUT {{baseUrl}}/comment/9
-Content-Type: application/json
 
-{
-    "content": "Je modifie le commentaire",
-    "person_id": 6,
-    "article_id": 2
-}
+
+### Route GET /medias
+GET {{baseUrl}}/medias
