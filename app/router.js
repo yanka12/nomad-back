@@ -25,7 +25,7 @@ const personSchema = require('./schemas/person');
 router.get('/profils', personController.getAllPerson);
 router.get('/profil/:id', personController.getOnePerson);
 router.post('/profil', personController.newPerson);
-router.delete('/profil/:id', personController.deleteUser);
+router.delete('/profil/:id', isConnected, personController.deleteUser);
 router.put('/profil/:id', isConnected, personController.updatePerson);
 
 // Category

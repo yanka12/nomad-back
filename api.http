@@ -32,7 +32,7 @@ Content-Type: application/json
 }
 
 ### Route DELETE /profil
-DELETE {{baseUrl}}/profil/2
+DELETE {{baseUrl}}/profil/55
 Content-Type: application/json
 
 
@@ -93,7 +93,7 @@ Content-Type: application/json
 
 
 ### Route DELETE /article
-DELETE {{baseUrl}}/article/6
+DELETE {{baseUrl}}/article/4
 Content-Type: application/json
 
 ### Route PUT /article/:id
@@ -131,7 +131,7 @@ Content-Type: application/json
 }
 
 ### Route DELETE /comment
-DELETE {{baseUrl}}/comment/7
+DELETE {{baseUrl}}/comment/3
 Content-Type: application/json
 
 ##################################  MEDIA  ########################################################################
@@ -147,16 +147,16 @@ POST {{baseUrl}}/media
 Content-Type: application/json
 
 {
-    "link": "oqpsdnj"
+    "link": "mljsqdmjnmsqdjdn"
 }
 
 
 ### Route DELETE /media
-DELETE {{baseUrl}}/media/7
+DELETE {{baseUrl}}/media/6
 Content-Type: application/json
 
 ### Route PUT /media/:id
-PUT {{baseUrl}}/media/6
+PUT {{baseUrl}}/media/8
 Content-Type: application/json
 
 {
