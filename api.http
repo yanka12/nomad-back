@@ -136,4 +136,12 @@ Content-Type: application/json
 GET {{baseUrl}}/medias
 
 ### Route GET /media/:id
-GET {{baseUrl}}/media/4
+GET {{baseUrl}}/media/5
+
+### Route POST /comment
+POST {{baseUrl}}/media
+Content-Type: application/json
+
+{
+    "link": "oqpsdnj"
+}

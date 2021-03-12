@@ -20,6 +20,26 @@ getOneMedia: async (req, res) => {
     
 },
 
+newMedia: async (request, response) => {
+    // on crée directement notre model à partir des données envoyées dans le payload
+    const theMedia = new Media(request.body);
+    // console.log(request.body);
+
+    // ici, thePost peut contenir l'une des 2 propriétés suivantes :
+    // - un categoryId, l'id d'une ligne dans la table category
+    // - une category, le libellé d'une ligne dans la table category
+    console.log(request.body);
+
+    try {
+        // pas de retour, postMapper intervient directement sur son paramètre, l'objet étant passé par référence
+        await mediaMapper.save(theMedia);
+        // console.log(thePerson);
+        response.json(theMedia);
+    } catch (err) {
+        response.status(403).json(err.message);
+    }
+},
+
 
 
 

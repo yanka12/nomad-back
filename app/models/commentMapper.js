@@ -32,22 +32,22 @@ findAll: async () => {
 
 save: async (theComment) => {
 
-        let query;
+  let query;
+
+  // toutes les données en commun sont préparées
+  const data = [
+      theComment.content,
+      theComment.person_id,
+      theComment.article_id,
+  ];
+
+  
+      query = "INSERT INTO comment (content, person_id, article_id) VALUES ($1, $2, $3) RETURNING id;";
+
+      const { rows } = await db.query(query, data);
+      theComment.id = rows[0].id;
       
-        // toutes les données en commun sont préparées
-        const data = [
-            theComment.content,
-            theComment.person_id,
-            theComment.article_id,
-        ];
-      
-        
-            query = "INSERT INTO comment (content, person_id, article_id) VALUES ($1, $2, $3) RETURNING id;";
-      
-            const { rows } = await db.query(query, data);
-            theComment.id = rows[0].id;
-            
-        
+  
 },
 
 deleteComment: async (id) => {

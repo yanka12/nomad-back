@@ -32,6 +32,23 @@ return new Media(result.rows[0]);
 
 },
 
+save: async (theMedia) => {
+
+let query;
+
+// toutes les données en commun sont préparées
+const data = [
+    theMedia.link
+];
+
+
+    query = "INSERT INTO media (link) VALUES ($1) RETURNING id;";
+
+    const { rows } = await db.query(query, data);
+    theMedia.id = rows[0].id;
+
+},
+
 
 
 
