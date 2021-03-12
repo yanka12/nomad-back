@@ -4,26 +4,13 @@
 # @path=v1
 @baseUrl = {{protocol}}://{{domainname}}:{{port}}
 
+#####################################  PROFIL  ######################################################
 
 ### Route GET /profils
 GET {{baseUrl}}/profils
 
-### Route GET /person
+### Route GET /profil/:id
 GET {{baseUrl}}/profil/10
-
-### Route GET /profil/id
-GET {{baseUrl}}/profil/2
-
-### Route PUT /profil/:id
-PUT {{baseUrl}}/comment/9
-Content-Type: application/json
-
-{
-    "content": "Je modifie le commentaire",
-    "person_id": 6,
-    "article_id": 2
-}
-
 
 
 ### Route POST /profil
@@ -34,28 +21,6 @@ Content-Type: application/json
     "nickname": "jean louis",
     "email": "jl@yahoo.fr",
     "password": "js4life"
-}
-
-### Route POST /signup
-POST {{baseUrl}}/signup
-Content-Type: application/json
-
-{
-    "nickname": "satanas",
-    "email": "satan@hell.com",
-    "password": "js4life",
-    "role_id": 2
-}
-
-### Route POST /login
-POST {{baseUrl}}/login
-Content-Type: application/json
-
-{
-    "id": 54,
-    "nickname": "nomad",
-    "email": "nomad@nomad.com",
-    "password": "Audy0714"
 }
 
 ### Route PUT /profil/:id
@@ -71,14 +36,43 @@ DELETE {{baseUrl}}/profil/2
 Content-Type: application/json
 
 
+##################################################  SIGNUP  ADMIN  LOGIN  ####################################################
+
+### Route POST /signup
+POST {{baseUrl}}/signup
+Content-Type: application/json
+
+{
+    "nickname": "satanas",
+    "email": "satan@hell.com",
+    "password": "js4life",
+    "role_id": 2
+}
+
+
+### Route POST /login
+POST {{baseUrl}}/login
+Content-Type: application/json
+
+{
+    "id": 54,
+    "nickname": "nomad",
+    "email": "nomad@nomad.com",
+    "password": "Audy0714"
+}
+
 ### Route GET /admin
 GET  {{baseUrl}}/admin
+
+####################################### CATEGORY  #################################################################
 
 ### Route GET /categories
 GET {{baseUrl}}/categories
 
 ### Route GET /category
 GET {{baseUrl}}/category/1
+
+######################################  ARTICLE  ###########################################################
 
 ### Route GET /article
 GET {{baseUrl}}/articles
@@ -110,6 +104,8 @@ Content-Type: application/json
     "name": "Ferrero"
 }
 
+########################################  COMMENT  #######################################################
+
 ### Route GET /comments
 GET {{baseUrl}}/comments
 
@@ -126,11 +122,21 @@ Content-Type: application/json
     "article_id": 2
 }
 
+### Route PUT /comment/:id
+PUT {{baseUrl}}/comment/9
+Content-Type: application/json
+
+{
+    "content": "Je modifie le commentaire",
+    "person_id": 6,
+    "article_id": 2
+}
+
 ### Route DELETE /comment
 DELETE {{baseUrl}}/comment/7
 Content-Type: application/json
 
-
+##################################  MEDIA  ########################################################################
 
 ### Route GET /medias
 GET {{baseUrl}}/medias
@@ -138,7 +144,7 @@ GET {{baseUrl}}/medias
 ### Route GET /media/:id
 GET {{baseUrl}}/media/5
 
-### Route POST /comment
+### Route POST /media
 POST {{baseUrl}}/media
 Content-Type: application/json
 
