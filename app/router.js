@@ -10,6 +10,7 @@ const articleController = require('./controllers/articleController');
 const adminController = require('./controllers/adminController');
 const commentController = require('./controllers/commentController');
 
+// Middleware de gestion des rôles
 const isConnected = require('./middlewares/isConnected');
 const isAdmin = require('./middlewares/isAdmin');
 const isNomad = require('./middlewares/isNomad');
