@@ -59,12 +59,27 @@ deleteMedia: async (req, res, next) => {
     }
 },
 
+updateMedia: async (req, res, next) => {
+    const id = Number(req.params.id);  
+    
+    let result = await mediaMapper.findOneMedia(id);
 
+    const properties = ['link'];
 
+    for (const prop in req.body) {
+        if (properties.includes(prop)) {
+            result[prop] = req.body[prop];
+        }
+    }
+    try {
+        // pas de retour, postMapper intervient directement sur son paramètre, l'objet étant passé par référence
+        const editMedia = await mediaMapper.updateMedia(result, id);
 
-
-
-
+        res.json({"le media a bien été modifié": editMedia});
+    } catch (err) {
+        res.status(404).json({"error":"Echec de la modification"});
+    }
+}
 
 
 

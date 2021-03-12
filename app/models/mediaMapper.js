@@ -57,6 +57,31 @@ deleteMedia: async (id) => {
         `, [id]);
 },
 
+updateMedia: async (theMedia, id) => {
+
+    const media = [
+        theMedia.link,
+        id
+    ];
+    //console.log(thePerson);
+    let queryMedia = (`
+        UPDATE media
+        SET link = $1
+        WHERE id = $2
+        RETURNING *;
+        `);  
+        try {
+        let result  = await db.query(queryMedia, media);
+
+        console.log(result.rows[0]);
+        return result.rows[0];
+
+        } catch (error) {
+        console.log(error);
+        }
+    
+}
+
 
 
 

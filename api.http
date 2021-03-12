@@ -150,3 +150,11 @@ Content-Type: application/json
 ### Route DELETE /media
 DELETE {{baseUrl}}/media/7
 Content-Type: application/json
+
+### Route PUT /media/:id
+PUT {{baseUrl}}/media/6
+Content-Type: application/json
+
+{
+    "link": "j'ai encore modifié ton url"
+}
