@@ -1,6 +1,7 @@
 const Media = require('./media');
 
 const db = require('../database');
+const { id } = require('../schemas/person');
 
 const mediaMapper = {
 
@@ -14,7 +15,72 @@ findAllMedia: async () => {
         return result.rows.map(media => new Media(media));
 },
 
+findOneMedia: async (id) => {
+    // console.log('id', id)
+    const result = await db.query(`
+    SELECT * 
+    FROM media
+    WHERE id = $1;
+    `, [id]);
+    // console.log(result.rows[0]);
+if (!result.rows[0]) { 
+    
+    throw new Error("Pas de média avec l'id " + id);
+}
 
+return new Media(result.rows[0]);
+
+},
+
+save: async (theMedia) => {
+
+let query;
+
+// toutes les données en commun sont préparées
+const data = [
+    theMedia.link
+];
+
+    query = "INSERT INTO media (link) VALUES ($1) RETURNING id;";
+
+    const { rows } = await db.query(query, data);
+    theMedia.id = rows[0].id;
+
+},
+
+deleteMedia: async (id) => {
+    console.log('id', id);
+    await db.query(`
+        DELETE
+        FROM media
+        WHERE id = $1;
+        `, [id]);
+},
+
+updateMedia: async (theMedia, id) => {
+
+    const media = [
+        theMedia.link,
+        id
+    ];
+    //console.log(thePerson);
+    let queryMedia = (`
+        UPDATE media
+        SET link = $1
+        WHERE id = $2
+        RETURNING *;
+        `);  
+        try {
+        let result  = await db.query(queryMedia, media);
+
+        console.log(result.rows[0]);
+        return result.rows[0];
+
+        } catch (error) {
+        console.log(error);
+        }
+    
+}
 
 
 

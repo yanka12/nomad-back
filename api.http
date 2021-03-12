@@ -134,3 +134,27 @@ Content-Type: application/json
 
 ### Route GET /medias
 GET {{baseUrl}}/medias
+
+### Route GET /media/:id
+GET {{baseUrl}}/media/5
+
+### Route POST /comment
+POST {{baseUrl}}/media
+Content-Type: application/json
+
+{
+    "link": "oqpsdnj"
+}
+
+
+### Route DELETE /media
+DELETE {{baseUrl}}/media/7
+Content-Type: application/json
+
+### Route PUT /media/:id
+PUT {{baseUrl}}/media/6
+Content-Type: application/json
+
+{
+    "link": "j'ai encore modifié ton url"
+}

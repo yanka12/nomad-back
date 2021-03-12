@@ -32,22 +32,22 @@ findAll: async () => {
 
 save: async (theComment) => {
 
-        let query;
+  let query;
+
+  // toutes les données en commun sont préparées
+  const data = [
+      theComment.content,
+      theComment.person_id,
+      theComment.article_id,
+  ];
+
+  
+      query = "INSERT INTO comment (content, person_id, article_id) VALUES ($1, $2, $3) RETURNING id;";
+
+      const { rows } = await db.query(query, data);
+      theComment.id = rows[0].id;
       
-        // toutes les données en commun sont préparées
-        const data = [
-            theComment.content,
-            theComment.person_id,
-            theComment.article_id,
-        ];
-      
-        
-            query = "INSERT INTO comment (content, person_id, article_id) VALUES ($1, $2, $3) RETURNING id;";
-      
-            const { rows } = await db.query(query, data);
-            theComment.id = rows[0].id;
-            
-        
+  
 },
 
 deleteComment: async (id) => {
@@ -61,32 +61,32 @@ deleteComment: async (id) => {
 
 updateComment: async (theComment, id) => {
 
-        const comment = [
-          theComment.content,
-          theComment.person_id,
-          theComment.article_id,
-          id
-        ];
-        //console.log(thePerson);
-          let queryComment = (`
-              UPDATE comment
-              SET content = $1,
-                  person_id = $2,
-                  article_id = $3
-              WHERE id = $4
-              RETURNING *;
-              `);  
-              try {
-                let result  = await db.query(queryComment, comment);
-        
-                console.log(result.rows[0]);
-                return result.rows[0];
-        
-              } catch (error) {
-                console.log(error);
-              }
-        
+  const comment = [
+    theComment.content,
+    theComment.person_id,
+    theComment.article_id,
+    id
+  ];
+  //console.log(thePerson);
+    let queryComment = (`
+        UPDATE comment
+        SET content = $1,
+            person_id = $2,
+            article_id = $3
+        WHERE id = $4
+        RETURNING *;
+        `);  
+        try {
+          let result  = await db.query(queryComment, comment);
+  
+          console.log(result.rows[0]);
+          return result.rows[0];
+  
+        } catch (error) {
+          console.log(error);
         }
+  
+}
 };
 
 module.exports = commentMapper;
