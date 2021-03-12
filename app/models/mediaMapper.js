@@ -41,7 +41,6 @@ const data = [
     theMedia.link
 ];
 
-
     query = "INSERT INTO media (link) VALUES ($1) RETURNING id;";
 
     const { rows } = await db.query(query, data);
@@ -49,7 +48,14 @@ const data = [
 
 },
 
-
+deleteMedia: async (id) => {
+    console.log('id', id);
+    await db.query(`
+        DELETE
+        FROM media
+        WHERE id = $1;
+        `, [id]);
+},
 
 
 

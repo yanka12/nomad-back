@@ -50,6 +50,7 @@ router.put('/comment/:id', commentController.updateComment);
 router.get('/medias', mediaController.getAllMedia);
 router.get('/media/:id', mediaController.getOneMedia);
 router.post('/media', mediaController.newMedia);
+router.delete('/media/:id', mediaController.deleteMedia);
 
 
 // gestion de l'inscription

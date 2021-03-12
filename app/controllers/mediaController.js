@@ -40,7 +40,24 @@ newMedia: async (request, response) => {
     }
 },
 
-
+deleteMedia: async (req, res, next) => {
+    try {
+        const { id } = req.params;
+        const user = await mediaMapper.findOneMedia(id);
+        // TODO delete tous les medias créés par la personne
+        // cherche les médias
+        // on les delete
+        await mediaMapper.deleteMedia(id);
+        res.status(200).json ({
+            ok: true,
+            message: `Le media ${id} a bien été supprimé`
+        })
+    }
+    catch(err) {
+        console.trace(err)
+        next(err);
+    }
+},
 
 
 

@@ -145,3 +145,8 @@ Content-Type: application/json
 {
     "link": "oqpsdnj"
 }
+
+
+### Route DELETE /media
+DELETE {{baseUrl}}/media/7
+Content-Type: application/json
