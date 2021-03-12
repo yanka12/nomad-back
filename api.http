@@ -45,8 +45,7 @@ Content-Type: application/json
 {
     "nickname": "satanas",
     "email": "satan@hell.com",
-    "password": "js4life",
-    "role_id": 2
+    "password": "js4life"
 }
 
 
