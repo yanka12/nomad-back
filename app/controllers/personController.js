@@ -85,7 +85,7 @@ updatePerson: async (req, res, next) => {
 
         res.json(editPerson);
     } catch (err) {
-        res.status(404).json({"error":"je suis ta pire erreur"});
+        res.status(404).json({"error":"Echec de la modification"});
     }
 }
 

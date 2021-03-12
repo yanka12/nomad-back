@@ -134,3 +134,6 @@ Content-Type: application/json
 
 ### Route GET /medias
 GET {{baseUrl}}/medias
+
+### Route GET /media/:id
+GET {{baseUrl}}/media/4

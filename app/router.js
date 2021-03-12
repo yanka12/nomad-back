@@ -48,6 +48,7 @@ router.put('/comment/:id', commentController.updateComment);
 
 // Media
 router.get('/medias', mediaController.getAllMedia);
+router.get('/media/:id', mediaController.getOneMedia);
 
 
 // gestion de l'inscription
