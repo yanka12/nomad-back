@@ -97,35 +97,6 @@ deleteUser: async (id) => {
     `, [id]);
 },
 
-updateArticle: async (thePerson, id) => {
-
-const person = [
-  thePerson.nickname,
-  thePerson.email,
-  thePerson.password,
-  id
-];
-//console.log(thePerson);
-  let queryPerson = (`
-      UPDATE person
-      SET nickname = $1,
-          email = $2,
-          password = $3
-      WHERE id = $4
-      RETURNING *;
-      `);  
-      try {
-        let result  = await db.query(queryPerson, person);
-
-        console.log(result.rows[0]);
-        return result.rows[0];
-
-      } catch (error) {
-        console.log(error);
-      }
-
-},
-
 updatePerson: async (thePerson, id) => {
   const person = [
     thePerson.nickname,
