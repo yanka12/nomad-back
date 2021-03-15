@@ -14,7 +14,6 @@ getOnePerson: async (request, response) => {
         const person = await personMapper.findOne(id);
         response.json(person);
         
-        
     } catch (err) { // l'Error qu'on a throw dans le mapper est récupérée ici
         // et sa propriété message correspond à la string qu'on a passée en argument du constructeur
         response.status(404).json(err.message);
