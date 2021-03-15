@@ -18,8 +18,8 @@ POST {{baseUrl}}/profil
 Content-Type: application/json
 
 {
-    "nickname": "jean Pierre",
-    "email": "jemappelle@email.fr",
+    "nickname": "Julien",
+    "email": "juliene@oclock.fr",
     "password": "js4life"
 }
 
