@@ -10,7 +10,7 @@
 GET {{baseUrl}}/profils
 
 ### Route GET /profil/:id
-GET {{baseUrl}}/profil/10
+GET {{baseUrl}}/profil/17
 
 
 ### Route POST /profil
@@ -18,8 +18,8 @@ POST {{baseUrl}}/profil
 Content-Type: application/json
 
 {
-    "nickname": "jean louis",
-    "email": "jl@yahoo.fr",
+    "nickname": "jean Pierre",
+    "email": "jemappelle@email.fr",
     "password": "js4life"
 }
 
@@ -32,7 +32,7 @@ Content-Type: application/json
 }
 
 ### Route DELETE /profil
-DELETE {{baseUrl}}/profil/55
+DELETE {{baseUrl}}/profil/58
 Content-Type: application/json
 
 
@@ -43,8 +43,8 @@ POST {{baseUrl}}/signup
 Content-Type: application/json
 
 {
-    "nickname": "satanas",
-    "email": "satan@hell.com",
+    "nickname": "louis",
+    "email": "louis@louis.com",
     "password": "js4life"
 }
 
@@ -54,10 +54,9 @@ POST {{baseUrl}}/login
 Content-Type: application/json
 
 {
-    "id": 54,
-    "nickname": "nomad",
-    "email": "nomad@nomad.com",
-    "password": "Audy0714"
+    "nickname": "louis",
+    "email": "louis@louis.com",
+    "password": "js4life"
 }
 
 ### Route GET /admin
@@ -109,7 +108,7 @@ Content-Type: application/json
 GET {{baseUrl}}/comments
 
 ### Route GET /comment/id
-GET {{baseUrl}}/comment/6
+GET {{baseUrl}}/comment/3
 
 ### Route POST /comment
 POST {{baseUrl}}/comment
