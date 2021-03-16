@@ -1,8 +1,7 @@
 const Joi = require('joi');
-const Joi = require('joi');
 
-const personSchema = Joi.object({
-    nickname: Joi.string().required,
+const personLoginSchema = Joi.object({
+    nickname: Joi.string(),
     email: Joi.string().required(),
     password: Joi.string()
     .min(6)
@@ -11,4 +10,4 @@ const personSchema = Joi.object({
     role_id: Joi.number().integer(),
 });
 
-module.exports = personSchema;
+module.exports = personLoginSchema;
