@@ -1,7 +1,6 @@
 const Media = require('../models/media');
 
 const db = require('../database');
-const { id } = require('../schemas/person');
 
 const mediaMapper = {
 
