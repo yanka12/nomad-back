@@ -24,6 +24,7 @@ const personSchema = require('./schemas/person');
 const articleSchema = require('./schemas/article');
 const commentSchema = require('./schemas/comment');
 const mediaSchema = require('./schemas/media');
+const personLoginSchema = require('./schemas/personLogin');
 
 // Profil
 router.get('/profils', isAdmin, isConnected, personController.getAllPerson);
@@ -62,7 +63,7 @@ router.put('/media/:id', isConnected, validateBody(mediaSchema), mediaController
 router.post('/signup', validateBody(personSchema), authController.SubmitSignupForm);
 
 // gestion de la connexion
-router.post('/login', validateBody(personSchema), authController.submitLoginForm);
+router.post('/login', validateBody(personLoginSchema), authController.submitLoginForm);
 
 // gestion de l'admin
 router.get('/admin',  isConnected, isAdmin, adminController.getAdminInfo);
