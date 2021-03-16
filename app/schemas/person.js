@@ -1,5 +1,4 @@
 const Joi = require('joi');
-const Joi = require('joi');
 
 const personSchema = Joi.object({
     nickname: Joi.string().required,
