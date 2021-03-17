@@ -8,6 +8,8 @@ const articleController = require('../controllers/articleController');
 const isAdmin = require('../middlewares/isAdmin');
 
 const articleSchema = require('../schemas/article');
+const modifyArticleSchema = require('../schemas/modifyArticle');
+
 const { validateBody } = require('../services/validator');
 
 
@@ -18,7 +20,7 @@ articleRouter.get('/articles', articleController.getAllArticle);
 articleRouter.get('/article/:id', articleController.getOneArticle);
 articleRouter.post('/article', isAdmin, validateBody(articleSchema), articleController.newArticle);
 articleRouter.delete('/article/:id', isAdmin, articleController.deleteArticle);
-articleRouter.put('/article/:id', isAdmin, validateBody(articleSchema), articleController.editArticle);
+articleRouter.put('/article/:id', isAdmin, validateBody(modifyArticleSchema), articleController.editArticle);
 
 
 module.exports = articleRouter;
