@@ -24,11 +24,14 @@ Content-Type: application/json
 }
 
 ### Route PUT /profil/:id
+
 PUT {{baseUrl}}/profil/1
+
 Content-Type: application/json
 
 {
-    "email": "nomad@nomad.com"
+    "nickname": "andré",
+    "email": "gerard@gerard.com"
 }
 
 ### Route DELETE /profil
@@ -53,14 +56,20 @@ Content-Type: application/json
 POST {{baseUrl}}/login
 Content-Type: application/json
 
-{
-    "nickname": "louis",
-    "email": "louis@louis.com",
+{    "email": "mkjssd@lkjhzdc.com",
     "password": "js4life"
 }
 
 ### Route GET /admin
 GET  {{baseUrl}}/admin
+
+### Route PUT /admin/profil/:id
+PUT  {{baseUrl}}/admin/profil/19
+Content-Type: application/json
+
+{
+    "role_id": 1
+}
 
 ####################################### CATEGORY  #################################################################
 

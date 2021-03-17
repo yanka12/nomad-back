@@ -13,21 +13,32 @@ const app = express();
 
 // body pareser config
 app.use(bodyParser.urlencoded({extended: true}));
+const expiryDate = new Date( Date.now() + 120 * 60 * 1000 );
 app.use(session({
-    // phrase pour crypter les infos
-    secret: 'mon super secret',
-    // sauvegarde la session à chaque requête même si elle n'est pas modifiée
-    saveUninitialized: true,
-    // resauvegarde la session à chaque requête même s'il n'y a pas de changement
+    name: 'session',
     resave: true,
+    saveUninitialized: true,
+    secret: 'secret',
+    cookie: {
+        secure: false,
+        expires: expiryDate
+    }
 }));
+
 app.use(bodyParser.json());
 
 const cors = require('cors');
 
 const port = process.env.PORT || 5000;
 
-const router = require('./app/router');
+const articleRouter = require('./app/router/articleRouter');
+const categoryRouter = require('./app/router/categoryRouter');
+const commentRouter = require('./app/router/commentRouter');
+const profilRouter = require('./app/router/profilRouter');
+const mediaRouter = require('./app/router/mediaRouter');
+const loginRouter = require('./app/router/loginRouter');
+const signUpRouter = require('./app/router/signUpRouter');
+const adminRouter = require('./app/router/adminRouter');
 
 app.use(cors());
 
@@ -38,6 +49,15 @@ app.use(function(req, res, next) {
 
 app.use(express.json());
 
-app.use(router);
+app.use(
+  articleRouter,
+  categoryRouter,
+  commentRouter,
+  profilRouter,
+  mediaRouter,
+  signUpRouter,
+  loginRouter,
+  adminRouter,
+  );
 
 app.listen(port, () => console.log(`Listening on http://localhost:${port}`));
