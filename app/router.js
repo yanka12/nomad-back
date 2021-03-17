@@ -25,13 +25,16 @@ const articleSchema = require('./schemas/article');
 const commentSchema = require('./schemas/comment');
 const mediaSchema = require('./schemas/media');
 const personLoginSchema = require('./schemas/personLogin');
+const modifyPersonSchema = require('./schemas/modifyPerson');
+const modifyArticleSchema = require('./schemas/modifyArticle');
+const modifyCommentSchema = require('./schemas/modifyComment');
 
 // Profil
 router.get('/profils', isAdmin, isConnected, personController.getAllPerson);
 router.get('/profil/:id', isConnected, isAcces, personController.getOnePerson);
 router.post('/profil', validateBody(personSchema), personController.newPerson);
 router.delete('/profil/:id', isConnected, isAcces, personController.deleteUser);
-router.put('/profil/:id', isConnected, isAcces, validateBody(personSchema), personController.updatePerson);
+router.put('/profil/:id', isConnected, isAcces, validateBody(modifyPersonSchema), personController.updatePerson);
 
 // Category
 router.get('/categories', categoryController.getAllCategories);
@@ -42,14 +45,14 @@ router.get('/articles', articleController.getAllArticle);
 router.get('/article/:id', articleController.getOneArticle);
 router.post('/article', isAdmin, validateBody(articleSchema), articleController.newArticle);
 router.delete('/article/:id', isAdmin, articleController.deleteArticle);
-router.put('/article/:id', isAdmin, validateBody(articleSchema), articleController.editArticle);
+router.put('/article/:id', isAdmin, validateBody(modifyArticleSchema), articleController.editArticle);
 
 // Comment
 router.get('/comments', commentController.getAllComment);
 router.get('/comment/:id', commentController.getOneComment);
 router.post('/comment', isConnected, isNomad, validateBody(commentSchema), commentController.newComment);
 router.delete('/comment/:id', isConnected, isAcces, isAdmin, commentController.deleteComment);
-router.put('/comment/:id', isConnected, isAcces, validateBody(commentSchema), commentController.updateComment);
+router.put('/comment/:id', isConnected, isAcces, validateBody(modifyCommentSchema), commentController.updateComment);
 
 // Media
 router.get('/medias', mediaController.getAllMedia);

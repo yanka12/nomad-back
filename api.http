@@ -10,7 +10,7 @@
 GET {{baseUrl}}/profils
 
 ### Route GET /profil/:id
-GET {{baseUrl}}/profil/17
+GET {{baseUrl}}/profil/1
 
 
 ### Route POST /profil
@@ -24,7 +24,7 @@ Content-Type: application/json
 }
 
 ### Route PUT /profil/:id
-PUT {{baseUrl}}/profil/54
+PUT {{baseUrl}}/profil/1
 Content-Type: application/json
 
 {
@@ -84,7 +84,7 @@ POST {{baseUrl}}/article
 Content-Type: application/json
 
 {
-    "name": "Kinders",
+    "name": "Kinders test 2",
     "description": "Ceci est un article sur les Kinders",
     "content": "Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. Le ..."
 }
@@ -99,7 +99,7 @@ PUT {{baseUrl}}/article/2
 Content-Type: application/json
 
 {
-    "name": "Ferrero"
+    "name": "Ferrero test"
 }
 
 ########################################  COMMENT  #######################################################
