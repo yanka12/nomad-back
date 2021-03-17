@@ -31,7 +31,14 @@ const cors = require('cors');
 
 const port = process.env.PORT || 5000;
 
-const router = require('./app/router');
+const articleRouter = require('./app/router/articleRouter');
+const categoryRouter = require('./app/router/categoryRouter');
+const commentRouter = require('./app/router/commentRouter');
+const profilRouter = require('./app/router/profilRouter');
+const mediaRouter = require('./app/router/mediaRouter');
+const loginRouter = require('./app/router/loginRouter');
+const signUpRouter = require('./app/router/signUpRouter');
+const adminRouter = require('./app/router/adminRouter');
 
 app.use(cors());
 
@@ -42,6 +49,15 @@ app.use(function(req, res, next) {
 
 app.use(express.json());
 
-app.use(router);
+app.use(
+  articleRouter,
+  categoryRouter,
+  commentRouter,
+  profilRouter,
+  mediaRouter,
+  signUpRouter,
+  loginRouter,
+  adminRouter,
+  );
 
 app.listen(port, () => console.log(`Listening on http://localhost:${port}`));
