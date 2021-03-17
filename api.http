@@ -10,7 +10,7 @@
 GET {{baseUrl}}/profils
 
 ### Route GET /profil/:id
-GET {{baseUrl}}/profil/1
+GET {{baseUrl}}/profil/24
 
 
 ### Route POST /profil
@@ -18,20 +18,19 @@ POST {{baseUrl}}/profil
 Content-Type: application/json
 
 {
-    "nickname": "jean Pierre",
-    "email": "jemappelle@email.fr",
+    "nickname": "test modify",
+    "email": "modify@email.fr",
     "password": "js4life"
 }
 
 ### Route PUT /profil/:id
 
-PUT {{baseUrl}}/profil/1
-
+PUT {{baseUrl}}/profil/24
 Content-Type: application/json
 
 {
-    "nickname": "André",
-    "email": "gerard@gerard.com"
+    "nickname": "test",
+    "email":"tototest@email.fr"
 }
 
 ### Route DELETE /profil
