@@ -31,7 +31,7 @@ router.get('/profils', isAdmin, isConnected, personController.getAllPerson);
 router.get('/profil/:id', isConnected, isAcces, personController.getOnePerson);
 router.post('/profil', validateBody(personSchema), personController.newPerson);
 router.delete('/profil/:id', isConnected, isAcces, personController.deleteUser);
-router.put('/profil/:id', isConnected, isAcces, validateBody(personSchema), personController.updatePerson);
+router.put('/profil/:id', isConnected, isAcces, validateBody(personLoginSchema), personController.updatePerson);
 
 // Category
 router.get('/categories', categoryController.getAllCategories);
@@ -67,5 +67,7 @@ router.post('/login', validateBody(personLoginSchema), authController.submitLogi
 
 // gestion de l'admin
 router.get('/admin',  isConnected, isAdmin, adminController.getAdminInfo);
+router.put('/admin/profil/:id', isConnected, isAdmin, adminController.updateInfo);
+
 
 module.exports = router;
