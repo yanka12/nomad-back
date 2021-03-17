@@ -13,14 +13,18 @@ const app = express();
 
 // body pareser config
 app.use(bodyParser.urlencoded({extended: true}));
+const expiryDate = new Date( Date.now() + 120 * 60 * 1000 );
 app.use(session({
-    // phrase pour crypter les infos
-    secret: 'mon super secret',
-    // sauvegarde la session à chaque requête même si elle n'est pas modifiée
-    saveUninitialized: true,
-    // resauvegarde la session à chaque requête même s'il n'y a pas de changement
+    name: 'session',
     resave: true,
+    saveUninitialized: true,
+    secret: 'secret',
+    cookie: {
+        secure: false,
+        expires: expiryDate
+    }
 }));
+
 app.use(bodyParser.json());
 
 const cors = require('cors');
