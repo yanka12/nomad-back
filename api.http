@@ -10,7 +10,7 @@
 GET {{baseUrl}}/profils
 
 ### Route GET /profil/:id
-GET {{baseUrl}}/profil/17
+GET {{baseUrl}}/profil/24
 
 
 ### Route POST /profil
@@ -18,18 +18,19 @@ POST {{baseUrl}}/profil
 Content-Type: application/json
 
 {
-    "nickname": "Julien",
-    "email": "juliene@oclock.fr",
+    "nickname": "test modify",
+    "email": "modify@email.fr",
     "password": "js4life"
 }
 
 ### Route PUT /profil/:id
-PUT {{baseUrl}}/profil/19
+
+PUT {{baseUrl}}/profil/24
 Content-Type: application/json
 
 {
-    "nickname": "andré",
-    "email": "gerard@gerard.com"
+    "nickname": "test",
+    "email":"tototest@email.fr"
 }
 
 ### Route DELETE /profil
@@ -91,7 +92,7 @@ POST {{baseUrl}}/article
 Content-Type: application/json
 
 {
-    "name": "Kinders",
+    "name": "Kinders test 2",
     "description": "Ceci est un article sur les Kinders",
     "content": "Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. Le ..."
 }
@@ -106,7 +107,7 @@ PUT {{baseUrl}}/article/2
 Content-Type: application/json
 
 {
-    "name": "Ferrero"
+    "name": "Ferrero test modifier"
 }
 
 ########################################  COMMENT  #######################################################
@@ -115,7 +116,7 @@ Content-Type: application/json
 GET {{baseUrl}}/comments
 
 ### Route GET /comment/id
-GET {{baseUrl}}/comment/3
+GET {{baseUrl}}/comment/2
 
 ### Route POST /comment
 POST {{baseUrl}}/comment
@@ -128,7 +129,7 @@ Content-Type: application/json
 }
 
 ### Route PUT /comment/:id
-PUT {{baseUrl}}/comment/3
+PUT {{baseUrl}}/comment/2
 Content-Type: application/json
 
 {
