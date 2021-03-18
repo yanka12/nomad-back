@@ -6,7 +6,6 @@ const personController = require('../controllers/personController');
 
 
 // Middleware de gestion des rôles
-const isConnected = require('../middlewares/isConnected');
 const isAdmin = require('../middlewares/isAdmin');
 const isNomad = require('../middlewares/isNomad');
 const isAcces = require('../middlewares/isAcces');
@@ -18,10 +17,10 @@ const modifyPersonSchema = require('../schemas/modifyPerson');
 
 
 // Profil
-profilRouter.get('/profils', auth, personController.getAllPerson);
-profilRouter.get('/profil/:id', isConnected, isAcces, personController.getOnePerson);
+profilRouter.get('/profils', auth, isAdmin, personController.getAllPerson);
+profilRouter.get('/profil/:id', auth, isAcces, personController.getOnePerson);
 profilRouter.post('/profil', validateBody(personSchema), personController.newPerson);
-profilRouter.delete('/profil/:id', isConnected, isAcces, personController.deleteUser);
-profilRouter.put('/profil/:id', isConnected, isAcces, validateBody(modifyPersonSchema), personController.updatePerson);
+profilRouter.delete('/profil/:id', auth, isAcces, personController.deleteUser);
+profilRouter.put('/profil/:id', auth, isAcces, validateBody(modifyPersonSchema), personController.updatePerson);
 
 module.exports = profilRouter;
