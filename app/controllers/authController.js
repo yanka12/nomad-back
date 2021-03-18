@@ -127,9 +127,18 @@ try {
         // afficher son nom et le lien déconnecter
         if (isValidPassword) {
         // on stocke les infos du user en session
-        req.session.user = user;
+        delete user.password;
         // et on le redirige
-        res.status(201).json({user, message:'Utilisateur connecté avec succes'});
+        res.status(200).json({
+            user,
+            token: jwt.sign({   
+                userId: user.id,
+                userRole_id: user.role_id
+            }, process.env.JWT_SECRET, {
+                expiresIn: "1h",
+            }),
+        });        
+            console.log(user);
         }
         else {
         errors.push('Veuillez vérifier vos identifiants');
@@ -141,8 +150,6 @@ try {
         console.trace(error);
     }
 },
-
-
 
 };
 

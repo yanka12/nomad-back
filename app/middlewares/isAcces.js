@@ -16,4 +16,3 @@ const isAcces = (req, res, next) => {
 
 module.exports = isAcces;
 
-//   

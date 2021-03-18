@@ -43,6 +43,7 @@ newPerson: async (request, response) => {
 
 getAllPerson: async (request, response) => {
     const persons = await personMapper.findAll();
+    // console.log("getAllPersnRoleId", request.userRoleId);
 
     response.json(persons);
 },
