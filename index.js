@@ -4,26 +4,16 @@ const express = require('express');
 
 const bodyParser = require('body-parser');
 
-const session = require('express-session');
 
 
-// var  jwt  = require ( ' jsonwebtoken ' ) ; 
+
 
 const app = express();
 
 // body pareser config
 app.use(bodyParser.urlencoded({extended: true}));
 const expiryDate = new Date( Date.now() + 120 * 60 * 1000 );
-app.use(session({
-    name: 'session',
-    resave: true,
-    saveUninitialized: true,
-    secret: 'secret',
-    cookie: {
-        secure: false,
-        expires: expiryDate
-    }
-}));
+
 
 app.use(bodyParser.json());
 
