@@ -30,7 +30,7 @@ const loginRouter = require('./app/router/loginRouter');
 const signUpRouter = require('./app/router/signUpRouter');
 const adminRouter = require('./app/router/adminRouter');
 
-app.use(cors());
+app.use(cors('*'));
 
 app.use(function(req, res, next) {
     res.setHeader('Content-Range', '0-100/1000')
