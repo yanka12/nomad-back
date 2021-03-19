@@ -14,7 +14,7 @@ getOneComment: async (request, response) => {
         
     } catch (err) { // l'Error qu'on a throw dans le mapper est récupérée ici
         // et sa propriété message correspond à la string qu'on a passée en argument du constructeur
-        response.status(404).json(err.message);
+        response.status(404).json({"error":"Not found"});
     }
     
 },
@@ -41,7 +41,7 @@ newComment: async (request, response) => {
         // console.log(thePerson);
         response.json(theComment);
     } catch (err) {
-        response.status(403).json(err.message);
+        response.status(403).json({"error":"Save comment failed"});
     }
 },
 
@@ -53,7 +53,7 @@ deleteComment: async (req, res, next) => {
         await commentMapper.deleteComment(id);
         res.status(200).json ({
             ok: true,
-            message: `Le commentaire ${id} a bien été supprimé`
+            message: `the comment with ${id} has been deleted successfuly`
         })
     }
     catch(err) {
@@ -80,7 +80,7 @@ updateComment: async (req, res, next) => {
 
         res.json(editComment);
     } catch (err) {
-        res.status(404).json({"error": "recommence"});
+        res.status(400).json({"error":"Update comment failed"});
     }
 }
 

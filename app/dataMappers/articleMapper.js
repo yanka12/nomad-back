@@ -8,6 +8,10 @@ findAll: async () => {
         const result = await db.query(`
         SELECT * FROM article;
         `);
+        if (!result.rows[0]) { 
+        
+          throw new Error("Articles not found");
+        }
 
         return result.rows.map(art => new Article(art));
     },
@@ -33,7 +37,7 @@ findOne: async (id) => {
       console.log(result.rows[0]);
       if (!result.rows[0]) { 
         
-        throw new Error("Pas d\'article avec l'id " + id);
+        throw new Error("No article with id " + id);
       }
       
       return new Article(result.rows[0]);
@@ -57,8 +61,7 @@ save: async (theArticle) => {
             const { rows } = await db.query(query, data);
             theArticle.id = rows[0].id;
             
-        
-      },
+},
 
 deleteArticle: async (id) => {
         console.log('id', id);

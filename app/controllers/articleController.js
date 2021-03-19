@@ -16,7 +16,7 @@ const articleController = {
       const article = await articleMapper.findOne(id);
       response.json(article);
     } catch (err) {
-      response.status(404).json(err.message);
+      response.status(404).json({"error":"Article not found"});
     }
   },
 
@@ -32,7 +32,7 @@ const articleController = {
       // console.log(thePerson);
       response.json(theArticle);
     } catch (err) {
-      response.status(403).json(err.message);
+      response.status(403).json({"error":"Save failed"});
     }
   },
 
@@ -69,7 +69,7 @@ const articleController = {
 
       res.json(changeArticle);
     } catch (err) {
-      res.status(404).json({ error: "je suis ta pire erreur" });
+      res.status(400).json({"error":"Update failed"});
     }
   },
 };

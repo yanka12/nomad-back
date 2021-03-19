@@ -16,7 +16,7 @@ getOnePerson: async (request, response) => {
         
     } catch (err) { // l'Error qu'on a throw dans le mapper est récupérée ici
         // et sa propriété message correspond à la string qu'on a passée en argument du constructeur
-        response.status(404).json(err.message);
+        response.status(404).json({"error":"Person not found"});
     }
 
 },
@@ -37,7 +37,7 @@ newPerson: async (request, response) => {
         // console.log(thePerson);
         response.json(thePerson);
     } catch (err) {
-        response.status(403).json(err.message);
+        response.status(403).json({"error":"Save person failed"});
     }
 },
 
@@ -58,7 +58,7 @@ deleteUser: async (req, res, next) => {
         await personMapper.deleteUser(id);
         res.status(200).json ({
             ok: true,
-            message: `L\'utilisateur ${id} a bien été supprimé`
+            message: `The Profile with the id ${id} has been created successfuly`
         })
     }
     catch(err) {
@@ -85,7 +85,7 @@ updatePerson: async (req, res, next) => {
 
         res.json(editPerson);
     } catch (err) {
-        res.status(404).json({"error":"Echec de la modification"});
+        res.status(400).json({"error":"Update person failed"});
     }
 }
 

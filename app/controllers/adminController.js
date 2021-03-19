@@ -8,7 +8,7 @@ const adminController = {
 getAdminInfo: async (req, res) => {
 
     console.log(req.session.user);
-    if (!req.session.user || req.session.user.role_id !== 1) {
+    if (!req.session.user || req.session.user.role_id!== 1) {
     return await res.status(403).json({"error":"you are not an admin"});
     }
     else {
@@ -36,7 +36,7 @@ updateInfo: async (req, res, next) => {
 
         res.json(editPerson);
     } catch (err) {
-        res.status(404).json({"error":"Echec de la modification"});
+        res.status(400).json({"error":"Update profile info failed"});
     }
 }
 
