@@ -18,9 +18,9 @@ POST {{baseUrl}}/profil
 Content-Type: application/json
 
 {
-    "nickname": "test modify",
-    "email": "modify@email.fr",
-    "password": "js4life"
+    "nickname": "tototo",
+    "email": "tototo@email.fr",
+    "password": "js4life2"
 }
 
 ### Route PUT /profil/:id
@@ -45,8 +45,8 @@ POST {{baseUrl}}/signup
 Content-Type: application/json
 
 {
-    "nickname": "louis",
-    "email": "louis@louis.com",
+    "nickname": "toto",
+    "email": "toto@toto.com",
     "password": "js4life"
 }
 
@@ -92,7 +92,7 @@ POST {{baseUrl}}/article
 Content-Type: application/json
 
 {
-    "name": "Kinders test 2",
+    "name": "Kinders test 4",
     "description": "Ceci est un article sur les Kinders",
     "content": "Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. Le ..."
 }
@@ -103,7 +103,7 @@ DELETE {{baseUrl}}/article/4
 Content-Type: application/json
 
 ### Route PUT /article/:id
-PUT {{baseUrl}}/article/2
+PUT {{baseUrl}}/article/6
 Content-Type: application/json
 
 {
