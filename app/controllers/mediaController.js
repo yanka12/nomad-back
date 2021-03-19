@@ -15,7 +15,7 @@ getOneMedia: async (req, res) => {
         // console.log(media);
     res.json(media);
     } catch (error) {
-        res.json({"error":"pas de média avec l'id " + id});
+        res.status(404).json({"error":"No media with id " + id});
     }
     
 },
@@ -36,7 +36,7 @@ newMedia: async (request, response) => {
         // console.log(thePerson);
         response.json(theMedia);
     } catch (err) {
-        response.status(403).json(err.message);
+        response.status(403).json({"error":"Save media failed"});
     }
 },
 
@@ -50,7 +50,7 @@ deleteMedia: async (req, res, next) => {
         await mediaMapper.deleteMedia(id);
         res.status(200).json ({
             ok: true,
-            message: `Le media ${id} a bien été supprimé`
+            message: `The media with the id ${id} has been deleted successfuly`
         })
     }
     catch(err) {
@@ -75,9 +75,9 @@ updateMedia: async (req, res, next) => {
         // pas de retour, postMapper intervient directement sur son paramètre, l'objet étant passé par référence
         const editMedia = await mediaMapper.updateMedia(result, id);
 
-        res.json({"le media a bien été modifié": editMedia});
+        res.json({"The media has been modified successfuly": editMedia});
     } catch (err) {
-        res.status(404).json({"error":"Echec de la modification"});
+        res.status(400).json({"error":"Update failed"});
     }
 }
 

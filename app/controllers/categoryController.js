@@ -19,7 +19,7 @@ getOneCategory: async (request, response) => {
             
             
         } catch (err) {
-            response.status(404).json(err.message);
+            response.status(404).json({"error":"Category not found"});
         }
 },
 }

@@ -86,7 +86,7 @@ try {
 } catch (error) {
     
     console.trace(error);
-    res.json({error:error.message})
+    res.json({"error":"No profile created"})
 }
 },
 
@@ -113,8 +113,8 @@ try {
     // à partir d'ici, si on a un utilisateur, on le redirige sur la page d'accueil
     // si le user est null on redirige sur la page d'inscription 
     if (!user) {
-        errors.push('Veuillez vérifier vos identifiants');
-        res.json({error:error.message})
+        errors.push("Please enter your details");
+        res.status(401).json({"error" : "Please enter your details"})
     }
     else {
         // si on a trouvé un utilisateur, il va falloir comparer le mdp
