@@ -26,13 +26,9 @@ newPerson: async (request, response) => {
     const thePerson = new Person(request.body);
     // console.log(request.body);
 
-    // ici, thePost peut contenir l'une des 2 propriétés suivantes :
-    // - un categoryId, l'id d'une ligne dans la table category
-    // - une category, le libellé d'une ligne dans la table category
     console.log(request.body);
 
     try {
-        // pas de retour, postMapper intervient directement sur son paramètre, l'objet étant passé par référence
         await personMapper.save(thePerson);
         // console.log(thePerson);
         response.json(thePerson);
@@ -80,7 +76,6 @@ updatePerson: async (req, res, next) => {
         }
     }
     try {
-        // pas de retour, postMapper intervient directement sur son paramètre, l'objet étant passé par référence
         const editPerson = await personMapper.updatePerson(result, id);
 
         res.json(editPerson);

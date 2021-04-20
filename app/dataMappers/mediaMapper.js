@@ -35,7 +35,6 @@ save: async (theMedia) => {
 
 let query;
 
-// toutes les données en commun sont préparées
 const data = [
     theMedia.link
 ];

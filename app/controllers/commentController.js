@@ -30,13 +30,9 @@ newComment: async (request, response) => {
     const theComment = new Comment(request.body);
     // console.log(request.body);
 
-    // ici, thePost peut contenir l'une des 2 propriétés suivantes :
-    // - un categoryId, l'id d'une ligne dans la table category
-    // - une category, le libellé d'une ligne dans la table category
     console.log(request.body);
 
     try {
-        // pas de retour, postMapper intervient directement sur son paramètre, l'objet étant passé par référence
         await commentMapper.save(theComment);
         // console.log(thePerson);
         response.json(theComment);
@@ -75,7 +71,6 @@ updateComment: async (req, res, next) => {
         }
     }
     try {
-        // pas de retour, postMapper intervient directement sur son paramètre, l'objet étant passé par référence
         const editComment = await commentMapper.updateComment(result, id);
 
         res.json(editComment);

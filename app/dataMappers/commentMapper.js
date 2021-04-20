@@ -34,7 +34,6 @@ save: async (theComment) => {
 
   let query;
 
-  // toutes les données en commun sont préparées
   const data = [
       theComment.content,
       theComment.person_id,
