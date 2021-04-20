@@ -31,7 +31,7 @@ updateInfo: async (req, res, next) => {
         }
     }
     try {
-        // pas de retour, postMapper intervient directement sur son paramètre, l'objet étant passé par référence
+
         const editPerson = await adminMapper.updatePerson(result, id);
 
         res.json(editPerson);

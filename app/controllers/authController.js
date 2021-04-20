@@ -33,7 +33,7 @@ try {
         errors.push('Vous devez renseigné un email valide');
     }
 
-    // vérifier que le mot de passe soit assez long © Maher
+    // vérifier que le mot de passe soit assez long 
     if (req.body.password.length < 6) {
         errors.push('le mot de passe doit avoir au minimum 6 caractères');
     }

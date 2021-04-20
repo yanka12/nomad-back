@@ -27,7 +27,6 @@ const articleController = {
     console.log(request.body);
 
     try {
-      // pas de retour, postMapper intervient directement sur son paramètre, l'objet étant passé par référence
       await articleMapper.save(theArticle);
       // console.log(thePerson);
       response.json(theArticle);
@@ -64,7 +63,6 @@ const articleController = {
       }
     }
     try {
-      // pas de retour, postMapper intervient directement sur son paramètre, l'objet étant passé par référence
       const changeArticle = await articleMapper.updateArticle(result, id);
 
       res.json(changeArticle);
